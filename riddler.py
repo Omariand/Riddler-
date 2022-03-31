@@ -1,2 +1,4 @@
-from time import time
+class Time:
+    
+    from time import time
 
