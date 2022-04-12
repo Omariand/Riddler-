@@ -1,6 +1,22 @@
 from wsgiref.util import shift_path_info
 from time import time
-
+class Riddler:
+    def __init__(self,player):
+        self.name = [player]
+        
+    def game_rules():
+        print(f"Welcome Player. Are you ready to play The Riddler Game?\
+            So here are the Rules\
+            1. You will be given a riddle a riddle that they have to answer \
+                with a  timer that goes down every second you take \
+            2.  If you make one mistake the time goes 1.25x faster \
+                and then this will continue until the BOMB goes off or  \
+                you answer the riddle correctly\
+            3.        ")
+        
+    def play_game():
+        guesses = 0
+        for word in guesses:
 class Time:
     
 
