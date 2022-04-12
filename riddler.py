@@ -1,5 +1,7 @@
 from wsgiref.util import shift_path_info
 from time import time
+from time import sleep
+from random import shuffle
 class Riddler:
     def __init__(self,player):
         self.name = [player]
@@ -9,8 +11,8 @@ class Riddler:
             So here are the Rules\
             1. You will be given a riddle a riddle that they have to answer \
                 with a  timer that goes down every second you take \
-            2.  If you make one mistake the time goes 1.25x faster \
-                and then this will continue until the BOMB goes off or  \
+            2.  If you make one mistake the time goes 10 to 20 t0 30 seconds \
+                faster and then this will continue until the BOMB goes off or  \
                 you answer the riddle correctly\
             3.        ")
         
