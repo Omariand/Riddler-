@@ -2,6 +2,8 @@ from wsgiref.util import shift_path_info
 from time import time
 from time import sleep
 from random import shuffle
+import pandas 
+
 class Riddler:
     def __init__(self,player):
         """This displays the players name.
@@ -20,16 +22,23 @@ class Riddler:
                 faster and then this will continue until the BOMB goes off or  \
                 you answer the riddle correctly\
             3.        ")
+    def read_riddle():
+        """"""
+    def read_answer():
+        """"""
     
+        
 class Time(Riddler):
-            
+    """"""      
     def play_game():
-        guesses = 0
-        for word in guesses:
+        """"""
+    guesses = 0
+    for word in guesses:
             
-    def winner(): 
-            
-            
+    def winner():
+        """"""
+    def time_deduction():
+        """"""       
             
             
             
