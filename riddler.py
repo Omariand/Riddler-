@@ -4,29 +4,37 @@ from time import sleep
 from random import shuffle
 class Riddler:
     def __init__(self,player):
-        self.name = [player]
+        """This displays the players name.
+
+        Args:
+            player (str): _description_
+        """
+        self.player = [player]
         
     def game_rules():
         print(f"Welcome Player. Are you ready to play The Riddler Game?\
             So here are the Rules\
-            1. You will be given a riddle a riddle that they have to answer \
+            1. You will be given a riddle, that they have to answer \
                 with a  timer that goes down every second you take \
-            2.  If you make one mistake the time goes 10 to 20 t0 30 seconds \
+            2.  If you make one mistake the time goes 10 to 20 to 30 seconds \
                 faster and then this will continue until the BOMB goes off or  \
                 you answer the riddle correctly\
             3.        ")
-        
+    
+class Time(Riddler):
+            
     def play_game():
         guesses = 0
         for word in guesses:
-class Time:
+            
+    def winner():
+            
+            
+            
+            
+            
     
 
-class Player:
-
-    def __init__(self,player):
-        self.player= player
-    def __repr__(self):
     
         #for guesses or like guess class
     #make a function that takes the guesses
