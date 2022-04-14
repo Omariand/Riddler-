@@ -27,7 +27,7 @@ class Time(Riddler):
         guesses = 0
         for word in guesses:
             
-    def winner():
+    def winner(): 
             
             
             
