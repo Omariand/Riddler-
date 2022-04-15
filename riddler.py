@@ -14,7 +14,8 @@ class Riddler:
 
         Args:
             player (str): Player name
-        """
+        Side effects:
+            displays an instance of the variable."""
         self.player = [player]
         
     def game_rules(self):
@@ -40,7 +41,8 @@ class Riddler:
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
         Args: 
-            textfile
+            self: an instance of the Riddler class
+            param: textfile
         Returns:
                 Prints Riddle answer"""
     
@@ -54,7 +56,8 @@ class Time(Riddler):
         Args: 
             str()s which may be the user input and holds that in until called for.
             
-        Side effects:
+        Side effects: 
+            displays information in the terminal.
         """
     guesses = 0
     for word in guesses:
@@ -67,8 +70,9 @@ class Time(Riddler):
         Args:
         
         Side effects:
+            Displays information of the winner in the terminal.
         """
-    def time_deduction(self,param):
+    def time_deduction(self,param,game_time):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
@@ -76,7 +80,11 @@ class Time(Riddler):
         30 seconds until the time is up
         Args:
         
-        Side effects:"""       
+        Side effects:
+            modifies the value of the "game_time" variable. (mutable)
+        Returns:
+            (int): an updated variable "game_time" with the deducted amount printed into the console.
+         """       
             
 def parse_args(arglist):
     """ Parse command-line arguments.
@@ -88,6 +96,7 @@ def parse_args(arglist):
     
     Returns:
         namespace: an object with one attribute, file, containing a string.
+        the parsed arguments.     
     """
     parser = ArgumentParser()
     parser.add_argument("file", help="file containing one address per line")
