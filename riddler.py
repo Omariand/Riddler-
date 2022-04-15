@@ -31,10 +31,18 @@ class Riddler:
             3.        ")
     def read_riddle():
         """This takes a text file and reads the text file, then converts the 
-        lines of the text file which will return the riddle given"""
+        lines of the text file which will return the riddle given
+        Args: 
+            textfile
+        Returns:
+                Prints read riddle statement"""
     def read_answer():
         """This takes a text file reads the text file then converts the lines
-        of the text file return the answer of the riddle"""
+        of the text file return the answer of the riddle
+        Args: 
+            textfile
+        Returns:
+                Prints Riddle answer"""
     
         
 class Time(Riddler):
@@ -43,9 +51,13 @@ class Time(Riddler):
     def play_game():
         """ This function will allow the player to guess the riddle through 
         amount of guesses. For the word being within the guess the player will 
-        either correctly answer or get time deducted for answering incorrectly"""
+        either correctly answer or get time deducted for answering incorrectly.
+        Args: 
+            str()s which may be the user input and holds that in until called for.
+            """
     guesses = 0
     for word in guesses:
+    
             
     def winner():
         """ This fuction will provide the player to either continue the game
