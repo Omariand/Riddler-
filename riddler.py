@@ -23,9 +23,9 @@ class Riddler:
                 you answer the riddle correctly\
             3.        ")
     def read_riddle():
-        """"""
+        """This takes a text file and reads the text file, then converts the lines of the text file which will return the riddle given"""
     def read_answer():
-        """"""
+        """This takes a text file reads the text file then converts the lines of the text file return the answer of the riddle"""
     
         
 class Time(Riddler):
@@ -40,7 +40,7 @@ class Time(Riddler):
     def time_deduction():
         """"""       
             
-            
+if __name__ == "__main__":            
             
     
 
