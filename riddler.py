@@ -5,15 +5,22 @@ from random import shuffle
 import pandas 
 
 class Riddler:
+    """The Riddler Class represents how the game will played and the game it self
+    this class will provide funtions that display the rules, starts the game and
+    reads text files.
+    """
     def __init__(self,player):
         """This displays the players name.
 
         Args:
-            player (str): _description_
+            player (str): Player name
         """
         self.player = [player]
         
     def game_rules():
+        """This function displays the instruction to the player so they\
+            understand what tasks need to be done and the rules.
+        """
         print(f"Welcome Player. Are you ready to play The Riddler Game?\
             So here are the Rules\
             1. You will be given a riddle, that they have to answer \
@@ -23,24 +30,56 @@ class Riddler:
                 you answer the riddle correctly\
             3.        ")
     def read_riddle():
-        """This takes a text file and reads the text file, then converts the lines of the text file which will return the riddle given"""
+        """This takes a text file and reads the text file, then converts the 
+        lines of the text file which will return the riddle given"""
     def read_answer():
-        """This takes a text file reads the text file then converts the lines of the text file return the answer of the riddle"""
+        """This takes a text file reads the text file then converts the lines
+        of the text file return the answer of the riddle"""
     
         
 class Time(Riddler):
-    """"""      
+    """ This Time class will keep track of time and create any time deductions
+    that may be taken as the user answers the riddles"""      
     def play_game():
-        """"""
+        """ This function will allow the player to guess the riddle through 
+        amount of guesses. For the word being within the guess the player will 
+        either correctly answer or get time deducted for answering incorrectly"""
     guesses = 0
     for word in guesses:
             
     def winner():
-        """"""
+        """ This fuction will provide the player to either continue the game
+        or end the game if they get the riddle correct. If the player beats all 
+        of the riddles they will recive a congratulatory message.
+        """
     def time_deduction():
-        """"""       
+        """ For this method we will be using the import time to deduct time 
+        as the player begins to answer the riddle. If the answer given the 
+        timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
+        If the play continously answers incorrectly the timer will keep deducting 
+        30 seconds until the time is up"""       
             
-if __name__ == "__main__":            
+def parse_args(arglist):
+    """ Parse command-line arguments.
+    
+    Expect one mandatory argument, the path to a file of addresses.
+    
+    Args:
+        arglist (list of str): command-line arguments.
+    
+    Returns:
+        namespace: an object with one attribute, file, containing a string.
+    """
+    parser = ArgumentParser()
+    parser.add_argument("file", help="file containing one address per line")
+    return parser.parse_args(arglist)
+
+if __name__ == "__main__": 
+    args = parse_args(sys.argv[1:])
+    for riddle in textfile(args.file):
+        # the !r tells the f-string to use the __repr__() method to generate
+        # a string version of the address object
+        return Riddler()          
             
     
 
