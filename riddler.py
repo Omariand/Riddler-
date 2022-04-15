@@ -17,7 +17,7 @@ class Riddler:
         """
         self.player = [player]
         
-    def game_rules():
+    def game_rules(self):
         """This function displays the instruction to the player so they\
             understand what tasks need to be done and the rules.
         """
@@ -29,14 +29,14 @@ class Riddler:
                 faster and then this will continue until the BOMB goes off or  \
                 you answer the riddle correctly\
             3.        ")
-    def read_riddle():
+    def read_riddle(self,param):
         """This takes a text file and reads the text file, then converts the 
         lines of the text file which will return the riddle given
         Args: 
             textfile
         Returns:
                 Prints read riddle statement"""
-    def read_answer():
+    def read_answer(self, param):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
         Args: 
@@ -48,28 +48,35 @@ class Riddler:
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""      
-    def play_game():
+    def play_game(self,param):
         """ This function will allow the player to guess the riddle through 
-        amount of guesses. For the word being within the guess the player will 
-        either correctly answer or get time deducted for answering incorrectly.
+        amount of guesses. This will call the deduction method and for each bad guess the deduction would be taken off. 
         Args: 
             str()s which may be the user input and holds that in until called for.
-            """
+            
+        Side effects:
+        """
     guesses = 0
     for word in guesses:
     
             
-    def winner():
+    def winner(self,param):
         """ This fuction will provide the player to either continue the game
         or end the game if they get the riddle correct. If the player beats all 
         of the riddles they will recive a congratulatory message.
+        Args:
+        
+        Side effects:
         """
-    def time_deduction():
+    def time_deduction(self,param):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
         If the play continously answers incorrectly the timer will keep deducting 
-        30 seconds until the time is up"""       
+        30 seconds until the time is up
+        Args:
+        
+        Side effects:"""       
             
 def parse_args(arglist):
     """ Parse command-line arguments.
