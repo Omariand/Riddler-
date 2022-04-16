@@ -30,14 +30,14 @@ class Riddler:
                 faster and then this will continue until the BOMB goes off or  \
                 you answer the riddle correctly\
             3.        ")
-    def read_riddle(self,param):
+    def read_riddle(self,r_file):
         """This takes a text file and reads the text file, then converts the 
         lines of the text file which will return the riddle given
         Args: 
             textfile
         Returns:
                 Prints read riddle statement"""
-    def read_answer(self, param):
+    def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
         Args: 
@@ -50,7 +50,7 @@ class Riddler:
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""      
-    def play_game(self,param):
+    def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad guess the deduction would be taken off. 
         Args: 
@@ -63,7 +63,7 @@ class Time(Riddler):
     for word in guesses:
     
             
-    def winner(self,param):
+    def winner(self,player):
         """ This fuction will provide the player to either continue the game
         or end the game if they get the riddle correct. If the player beats all 
         of the riddles they will recive a congratulatory message.
@@ -72,7 +72,7 @@ class Time(Riddler):
         Side effects:
             Displays information of the winner in the terminal.
         """
-    def time_deduction(self,param,game_time):
+    def time_deduction(self,player_time,game_time):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
