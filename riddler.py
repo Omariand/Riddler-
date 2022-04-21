@@ -2,7 +2,7 @@ from wsgiref.util import shift_path_info
 from time import time
 from time import sleep
 from random import shuffle
-import pandas 
+import pandas as pd
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
