@@ -9,7 +9,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,player):
+    def __init__(self,player,word):
         """This displays the players name.
 
         Args:
@@ -17,6 +17,7 @@ class Riddler:
         Side effects:
             displays an instance of the variable."""
         self.player = [player]
+        self.word = word
         
     def game_rules(self):
         """This function displays the instruction to the player so they\
@@ -60,7 +61,15 @@ class Time(Riddler):
             displays information in the terminal.
         """
     guesses = 0
-    for word in guesses:
+    while True:
+        word = shuffle(self.word)
+        for ch in guesses:
+            if ch in read_answer.a_file:
+                break
+            else:
+                guess = guess + ch
+        break 
+        return guess 
     
             
     def winner(self,player):
