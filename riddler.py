@@ -52,6 +52,7 @@ class Riddler:
             param: textfile
         Returns:
                 Prints Riddle answer"""
+    def game_over(self):
     
         
 class Time(Riddler):
@@ -75,7 +76,7 @@ class Time(Riddler):
             else:
                 guess = guess + ch
         break 
-        return guess 
+        return guesses 
     
             
     def winner(self,player):
@@ -87,6 +88,7 @@ class Time(Riddler):
         Side effects:
             Displays information of the winner in the terminal.
         """
+        
     def time_deduction(self,player_time,game_time):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
