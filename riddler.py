@@ -44,6 +44,11 @@ class Riddler:
             textfile
         Returns:
                 Prints read riddle statement"""
+        elist=[]
+        with open(r_file,"r",encoding="utf-8") as f:
+            for line in f:
+                rlist=elist.append(line.strip("?"))  
+                return rlist
     def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
@@ -52,6 +57,15 @@ class Riddler:
             param: textfile
         Returns:
                 Prints Riddle answer"""
+<<<<<<< HEAD
+=======
+        elist=[]
+        with open(a_file,"r",encoding="utf-8") as f:
+            for line in f:
+                alist=elist.append(line.strip("?",left))
+                return alist    
+    
+>>>>>>> 82554a04070b58cb0192ecc9039022bafc289853
     
         
 class Time(Riddler):
@@ -80,10 +94,18 @@ class Time(Riddler):
                 break
             else:
                 guess = guess + ch
+<<<<<<< HEAD
+        
+    
+=======
                 
+<<<<<<< HEAD
     def game_over(self):
         
                 
+=======
+>>>>>>> bee6076f74f5152722957bc98a5236323ffa60a5
+>>>>>>> 82554a04070b58cb0192ecc9039022bafc289853
             
     def winner(self,player):
         """ This fuction will provide the player to either continue the game
@@ -94,6 +116,13 @@ class Time(Riddler):
         Side effects:
             Displays information of the winner in the terminal.
         """
+        player= input("Would you like to play again <:^)")
+         
+        while player !="no":
+             self.play_game()
+        else: 
+            print("Thank you for trying to save Gotham Batman you failed though. ?<.,>???>?><?>?>?-Riddler")
+            
         
     def time_deduction(self,player_time,game_time):
         """ For this method we will be using the import time to deduct time 
