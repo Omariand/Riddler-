@@ -104,8 +104,9 @@ class Time(Riddler):
          
         for t in range(game_time):
             print(game_time - t)
-            time.sleep()
-            
+            time.sleep(1)
+        
+
 
         
             
