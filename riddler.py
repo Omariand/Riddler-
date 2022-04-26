@@ -1,7 +1,7 @@
 from wsgiref.util import shift_path_info
 from time import time
 from time import sleep
-from random import shuffle
+import random 
 import pandas as pd
 
 class Riddler:
@@ -66,16 +66,21 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-    guesses = 0
-    while True:
-        word = shuffle(self.word)
-        for ch in guesses:
-            if ch in read_answer.a_file:
+    words = []
+    word = random.choice()
+    
+    guesses = ''
+    turns = 12
+    while turns > 0:
+        failed = 0
+        
+        for ch in word:
+            if ch in guesses:
+                print(ch, end="")
                 break
             else:
                 guess = guess + ch
-        break 
-        return guess 
+        
     
             
     def winner(self,player):
