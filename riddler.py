@@ -30,7 +30,13 @@ class Riddler:
             2.  If you make one mistake the time goes 10 to 20 to 30 seconds \
                 faster and then this will continue until the BOMB goes off or  \
                 you answer the riddle correctly\
-            3.        ")
+            3. This will happen 5 times until the user saves the city and there \
+                will be times for each bomb upcoming and there will be \
+                significantly lower or harder as a riddle\
+                compared to the last one.\
+            4.The user or “Batman” if failed will have the city destroyed and\
+                a statement would be printed that they lose.\
+                Unless you win then a statement that you win will be diplayed ")
     def read_riddle(self,r_file):
         """This takes a text file and reads the text file, then converts the 
         lines of the text file which will return the riddle given
