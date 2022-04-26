@@ -81,13 +81,7 @@ class Time(Riddler):
                 break
             else:
                 guess = guess + ch
-<<<<<<< HEAD
-        
-=======
-        break 
-        return guesses 
->>>>>>> aa26c42a992a50d33a856808e65a6eb219745bce
-    
+                
             
     def winner(self,player):
         """ This fuction will provide the player to either continue the game
