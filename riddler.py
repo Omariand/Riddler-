@@ -52,7 +52,6 @@ class Riddler:
             param: textfile
         Returns:
                 Prints Riddle answer"""
-    def game_over(self):
     
         
 class Time(Riddler):
@@ -81,6 +80,9 @@ class Time(Riddler):
                 break
             else:
                 guess = guess + ch
+                
+    def game_over(self):
+        
                 
             
     def winner(self,player):
