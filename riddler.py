@@ -69,11 +69,11 @@ class Time(Riddler):
     guesses = 0
     while True:
         word = shuffle(self.word)
-        for ch in guesses:
-            if ch in read_answer.a_file:
+        for word in guesses:
+            if word in read_answer.a_file:
                 break
             else:
-                guess = guess + ch
+                guess = guess + word
         break 
         return guess 
     
