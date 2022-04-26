@@ -69,11 +69,11 @@ class Time(Riddler):
     guesses = 0
     while True:
         word = shuffle(self.word)
-        for word in guesses:
-            if word in read_answer.a_file:
+        for ch in guesses:
+            if ch in read_answer.a_file:
                 break
             else:
-                guess = guess + word
+                guess = guess + ch
         break 
         return guess 
     
@@ -99,7 +99,15 @@ class Time(Riddler):
             modifies the value of the "game_time" variable. (mutable)
         Returns:
             (int): an updated variable "game_time" with the deducted amount printed into the console.
-         """       
+         """     
+        game_time = int(180("seconds remaining"))
+         
+        for t in range(game_time):
+            print(game_time - t)
+            time.sleep()
+            
+
+        
             
 def parse_args(arglist):
     """ Parse command-line arguments.
