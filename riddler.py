@@ -9,15 +9,15 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,player,word):
+    def __init__(self,player):
         """This displays the players name.
 
         Args:
             player (str): Player name
         Side effects:
             displays an instance of the variable."""
-        self.player = [player]
-        self.word = word
+        self.player = player
+        
         
     def game_rules(self):
         """This function displays the instruction to the player so they\
@@ -37,6 +37,9 @@ class Riddler:
             4.The user or “Batman” if failed will have the city destroyed and\
                 a statement would be printed that they lose.\
                 Unless you win then a statement that you win will be diplayed ")
+
+                #create seperate print statement for each line or triple quoted string.
+                #if triple quoted string, create global variable at top.
     def read_riddle(self,r_file):
         """This takes a text file and reads the text file, then converts the 
         lines of the text file which will return the riddle given
@@ -49,6 +52,10 @@ class Riddler:
             for line in f:
                 rlist=elist.append(line.strip("?"))  
                 return rlist
+        #capture the question including question mark with one capturing group 
+        #capture the anwser with a capturing group
+
+        #[^?] + 
     def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
@@ -57,15 +64,12 @@ class Riddler:
             param: textfile
         Returns:
                 Prints Riddle answer"""
-<<<<<<< HEAD
-=======
         elist=[]
         with open(a_file,"r",encoding="utf-8") as f:
             for line in f:
                 alist=elist.append(line.strip("?",left))
                 return alist    
     
->>>>>>> 82554a04070b58cb0192ecc9039022bafc289853
     
         
 class Time(Riddler):
@@ -138,10 +142,12 @@ class Time(Riddler):
             (int): an updated variable "game_time" with the deducted amount printed into the console.
          """     
         game_time = int(180("seconds remaining"))
-         
-        for t in range(game_time):
-            print(game_time - t)
-            time.sleep(1)
+            t1 = time()
+            #input statement
+            t2 = time()
+            t2 - t1 = #seconds passed
+            
+            
         
 
 
