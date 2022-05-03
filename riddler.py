@@ -3,7 +3,6 @@ from time import time
 from time import sleep
 import random 
 import pandas as pd
-import datetime 
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
@@ -55,8 +54,13 @@ class Riddler:
                 return rlist
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
-
-        #[^?] + 
+        r"
+        (?xm)
+        ^
+        (?:(?P<question_number>\d(?:\d)?\.)\s)
+        (?P<question>[^?\n]+.\s)
+        (?:(?P<answer>.+))"
+        
     def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
@@ -75,38 +79,16 @@ class Riddler:
         
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
-    that may be taken as the user answers the riddles"""
-    
-    def countdown(h, m, s):
-        total_seconds = h * 3600 + m * 60 + s
-        
-        while total_seconds > 0:
-            timer = datetime.timedelta(seconds = total_seconds)
-            print(timer, end="\r")
- 
-        # Delays the program one second
-        time.sleep(1)
- 
-        # Reduces total time by one second
-        total_seconds -= 1
- 
-    print(f"Oh No! It looks like you've ran out of time! You Lose")
-    h = input("Enter the time in hours: ")
-    m = input("Enter the time in minutes: ")
-    s = input("Enter the time in seconds: ")
-    countdown(int(h), int(m), int(s))   
-   
+    that may be taken as the user answers the riddles"""      
     def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
-        amount of guesses. This will call the deduction method and for each\
-            bad guess the deduction would be taken off. 
+        amount of guesses. This will call the deduction method and for each bad guess the deduction would be taken off. 
         Args: 
             str()s which may be the user input and holds that in until called for.
             
         Side effects: 
             displays information in the terminal.
         """
-    
     words = []
     word = random.choice()
     
@@ -122,8 +104,11 @@ class Time(Riddler):
             else:
                 guess = guess + ch
 
+                
     def game_over(self):
+        raise NotImplementedError
         
+                
 
             
     def winner(self,player):
@@ -140,8 +125,7 @@ class Time(Riddler):
         while player !="no":
              self.play_game()
         else: 
-            print("Thank you for trying to save Gotham Batman you failed \
-                though. ?<.,>???>?><?>?>?-Riddler")
+            print("Thank you for trying to save Gotham Batman you failed though. ?<.,>???>?><?>?>?-Riddler")
             
         
     def time_deduction(self,player_time,game_time):
@@ -155,8 +139,7 @@ class Time(Riddler):
         Side effects:
             modifies the value of the "game_time" variable. (mutable)
         Returns:
-            (int): an updated variable "game_time" with the deducted \
-                amount printed into the console.
+            (int): an updated variable "game_time" with the deducted amount printed into the console.
          """     
         game_time = int(180("seconds remaining"))
             t1 = time()
