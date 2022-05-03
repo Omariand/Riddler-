@@ -1,7 +1,9 @@
 from wsgiref.util import shift_path_info
 from time import time
+from time import sleep
 import random 
 import pandas as pd
+import datetime 
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
@@ -73,8 +75,29 @@ class Riddler:
         
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
-    that may be taken as the user answers the riddles"""      
-    def play_game(self,player):
+    that may be taken as the user answers the riddles"""
+    
+    def countdown(h, m, s):
+        total_seconds = h * 3600 + m * 60 + s
+        
+        while total_seconds > 0:
+            timer = datetime.timedelta(seconds = total_seconds)
+            print(timer, end="\r")
+ 
+        # Delays the program one second
+        time.sleep(1)
+ 
+        # Reduces total time by one second
+        total_seconds -= 1
+ 
+    print(f"Oh No! It looks like you've ran out of time! You Lose")
+    h = input("Enter the time in hours: ")
+    m = input("Enter the time in minutes: ")
+    s = input("Enter the time in seconds: ")
+    countdown(int(h), int(m), int(s))   
+   
+    def play_game(self,player)
+    :
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each\
             bad guess the deduction would be taken off. 
@@ -84,7 +107,7 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-    time()
+    
     words = []
     word = random.choice()
     
