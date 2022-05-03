@@ -96,8 +96,7 @@ class Time(Riddler):
     s = input("Enter the time in seconds: ")
     countdown(int(h), int(m), int(s))   
    
-    def play_game(self,player)
-    :
+    def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each\
             bad guess the deduction would be taken off. 
