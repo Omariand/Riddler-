@@ -1,6 +1,7 @@
 from wsgiref.util import shift_path_info
 from time import time
 from time import sleep
+import datetime
 import random 
 import pandas as pd
 
@@ -76,13 +77,33 @@ class Riddler:
                 return alist    
     
     
-        
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
-    that may be taken as the user answers the riddles"""      
+    that may be taken as the user answers the riddles"""    
+   
+    def countdown(h, m, s):
+        total_seconds = h * 3600 + m * 60 + s
+        
+        while total_seconds > 0:
+            timer = datetime.timedelta(seconds = total_seconds)
+            print(timer, end="\r")
+ 
+        time.sleep(1)
+        total_seconds -= 1
+ 
+    print("Oh No! It looks like you've ran out of time.\
+    You set off the bomb Batman, lets see how you'll save Gotham now")
+ 
+
+    h = input("Enter the time in hours: ")
+    m = input("Enter the time in minutes: ")
+    s = input("Enter the time in seconds: ")
+    countdown(int(h), int(m), int(s)) 
+     
     def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
-        amount of guesses. This will call the deduction method and for each bad guess the deduction would be taken off. 
+        amount of guesses. This will call the deduction method and for each bad\
+            guess the deduction would be taken off. 
         Args: 
             str()s which may be the user input and holds that in until called for.
             
@@ -125,7 +146,8 @@ class Time(Riddler):
         while player !="no":
              self.play_game()
         else: 
-            print("Thank you for trying to save Gotham Batman you failed though. ?<.,>???>?><?>?>?-Riddler")
+            print("Thank you for trying to save Gotham Batman you failed \
+                though. ?<.,>???>?><?>?>?-Riddler")
             
         
     def time_deduction(self,player_time,game_time):
