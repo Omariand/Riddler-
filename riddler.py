@@ -132,11 +132,10 @@ class Time(Riddler):
             displays information in the terminal.
         """
         guess = input(" ") 
-        if input(" ") == self.answer:
+        if guess == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
                  can answer this one correctly")
-            
-        else:
+        elif guess != self.answer:
             print("Good Try! But your answer was WRONG... Try Again >:) ")
 
                 
