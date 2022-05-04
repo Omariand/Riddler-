@@ -4,6 +4,7 @@ from time import sleep
 import datetime
 import random 
 import pandas as pd
+import re
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
@@ -18,6 +19,22 @@ class Riddler:
         Side effects:
             displays an instance of the variable."""
         self.player = player
+        
+        expr = r"""
+        (?xm)
+        ^
+        (?:(?P<question_number>\d(?:\d)?\.)\s)
+        (?P<question>[^?\n]+.\s)
+        (?:(?P<answer>.+))
+        """
+        self.question_number = ('question_number')
+        self.question = ('question')
+        self.answer = ('answer')
+        
+        if re.search(expr) == None:
+            raise ValueError("This ")
+        else:
+            print(Riddler)
         
         
     def game_rules(self):
