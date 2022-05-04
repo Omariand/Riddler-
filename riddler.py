@@ -1,7 +1,8 @@
+#from tkinter.messagebox import QUESTION
 from typing_extensions import Self
-from wsgiref.util import shift_path_info
+#from wsgiref.util import shift_path_info
 from time import time
-from time import sleep
+#from time import sleep
 import datetime
 import random 
 import pandas as pd
@@ -30,9 +31,9 @@ class Riddler:
         """
         searchtxt=re.search(expr,rtxt)
         
-        self.question_number=searchtxt.group(1)
-        self.question=searchtxt.group(2)
-        self.answer=searchtxt.group(3)
+        self.question_number=searchtxt.group("question_number")
+        self.question=searchtxt.group("question")
+        self.answer=searchtxt.group("answer")
         
             
     def __repr__(self):
@@ -40,29 +41,28 @@ class Riddler:
         return (
             f"question: {self.question}\n"    
             f"answer:   {self.answer}\n")
+        #find a way to break up from answer and question and print them seperately 
         
-        
-    def game_rules(self):
-        """This function displays the instruction to the player so they\
+    def game_rules(rules):
+        """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
         """
-        print(f"Welcome Player. Are you ready to play The Riddler Game?\
-            So here are the Rules\
-            1. You will be given a riddle, that they have to answer \
-                with a  timer that goes down every second you take \
-            2.  If you make one mistake the time goes 10 to 20 to 30 seconds \
-                faster and then this will continue until the BOMB goes off or  \
-                you answer the riddle correctly\
-            3. This will happen 5 times until the user saves the city and there \
-                will be times for each bomb upcoming and there will be \
-                significantly lower or harder as a riddle\
-                compared to the last one.\
-            4.The user or “Batman” if failed will have the city destroyed and\
-                a statement would be printed that they lose.\
-                Unless you win then a statement that you win will be diplayed ")
+        rules=f"""Welcome Player. Are you ready to play The Riddler Game?
+            So here are the Rules
+            
+            1. You will be given a riddle, that they have to answer 
+                with a  timer that goes down every second you take 
+                
+            2.  If you make one mistake the time goes 10 to 20 to 30 seconds 
+                faster and then this will continue until the BOMB goes off or you answer the riddle correctly
+                
+            3. This will happen 5 times until the user saves the city and there will be times for each bomb upcoming and there will be significantly lower or harder as a riddle compared to the last one.
+            
+            4.The user or “Batman” if failed will have the city destroyed and
+                a statement would be printed that they lose.
+                Unless you win then a statement that you win will be diplayed """
+        print(rules)
 
-                #create seperate print statement for each line or triple quoted string.
-                #if triple quoted string, create global variable at top.
     def read_riddle(r_file):
         """This takes a text file and reads the text file, then converts the 
         lines of the text file which will return the riddle given
@@ -73,11 +73,11 @@ class Riddler:
         with open(r_file,"r",encoding="utf-8") as f:
             riddle_path=[Riddler(line.strip()) for line in f]
             return riddle_path
-            
+        #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
-        
-    def read_answer(self, a_file):
+        #find a way to randomize the riddles in the txtfile before being called or after 
+    #def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
         Args: 
@@ -85,10 +85,9 @@ class Riddler:
             param: textfile
         Returns:
                 Prints Riddle answer"""
-        elist=[]
         with open(a_file,"r",encoding="utf-8") as f:
             for line in f:
-                alist=elist.append(line.strip("?",))
+                alist=alist.append(line.strip("?",))
                 return alist    
     
     
@@ -106,10 +105,10 @@ class Time(Riddler):
         time.sleep(1)
         total_seconds -= 1
  
-    print("Oh No! It looks like you've ran out of time.\
-    You set off the bomb Batman, lets see how you'll save Gotham now")
+    print("""Oh No! It looks like you've ran out of time.
+    You set off the bomb Batman, lets see how you'll save Gotham now""")
  
-    countdown(Self) 
+    
      
     def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
@@ -138,8 +137,7 @@ class Time(Riddler):
 
                 
     def game_over(self):
-        raise NotImplementedError
-        
+        """stops game if the player answers the game correclty or the time runs out."""
                 
 
             
@@ -205,7 +203,7 @@ def parse_args(arglist):
 
 if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
-    for riddle in textfile(args.file):
+    for riddle in r_file(args.file):
         # the !r tells the f-string to use the __repr__() method to generate
         # a string version of the address object
         Riddler()          
