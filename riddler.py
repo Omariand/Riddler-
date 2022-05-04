@@ -125,24 +125,18 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-    words = []
-    word = random.choice()
-    
-    guesses = ''
-    turns = 12
-    while turns > 0:
-        failed = 0
-        
-        for ch in word:
-            if ch in guesses:
-                print(ch, end="")
-                break
-            else:
-                guess = guess + ch
+        if input(" ") == self.answer:
+            print("Well Done Batman, onto the next riddle. Let's see if you \
+                if you can answer this one")
+            
+        else:
+            print("Good Try! But your answer was WRONG... Try Again >:) ")
 
                 
     def game_over(self):
-        """stops game if the player answers the game correclty or the time runs out."""
+        """stops game if the player answers the game correclty or the \
+            time runs out."""
+         
                 
 
             
