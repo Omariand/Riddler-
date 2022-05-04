@@ -47,20 +47,25 @@ class Riddler:
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
         """
-        rules=f"""Welcome Player. Are you ready to play The Riddler Game?
+        rules = f"""Welcome Player. Are you ready to play The Riddler Game?
             So here are the Rules
             
             1. You will be given a riddle, that they have to answer 
                 with a  timer that goes down every second you take 
                 
             2.  If you make one mistake the time goes 10 to 20 to 30 seconds 
-                faster and then this will continue until the BOMB goes off or you answer the riddle correctly
+                faster and then this will continue until the BOMB goes \
+                    off or you answer the riddle correctly
                 
-            3. This will happen 5 times until the user saves the city and there will be times for each bomb upcoming and there will be significantly lower or harder as a riddle compared to the last one.
+            3. This will happen 5 times until the user saves the city and there\
+                will be times for each bomb upcoming and there will be \
+                    significantly lower or harder as a riddle compared \
+                        to the last one.
             
             4.The user or “Batman” if failed will have the city destroyed and
                 a statement would be printed that they lose.
-                Unless you win then a statement that you win will be diplayed """
+                Unless you win then a statement that you win will be diplayed
+                """
         print(rules)
 
     def read_riddle(r_file):
@@ -172,7 +177,7 @@ class Time(Riddler):
         Returns:
             (int): an updated variable "game_time" with the deducted amount printed into the console.
          """
-        deduction=0
+        deduction = 0
         game_time=180     
         play_time = f"{game_time} seconds remaining"
         print(play_time)
