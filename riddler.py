@@ -21,6 +21,7 @@ class Riddler:
         Side effects:
             displays an instance of the variable."""
         self.player = player
+        #no need to store player name 
         
         expr = r"""
         (?xm)
@@ -34,13 +35,18 @@ class Riddler:
         self.question_number=searchtxt.group("question_number")
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
-        
-            
-    def __repr__(self):
-        "Return formal riddle of the code"
-        return (
-            f"question: {self.question}\n"    
-            f"answer:   {self.answer}\n")
+        #make a dictionary of the riddle and then complies them 
+        #dictionary may have easier functionality 
+        #need to be stored somewhere, maybe list of tuples
+        #make riddle saying key
+        #make value the answer
+        #or make key the number
+        #value be the a tuple or index zero is riddle    
+    #def __repr__(self):
+        #"Return formal riddle of the code"
+        #return (
+            #f"question: {self.question}\n"    
+            #f"answer:   {self.answer}\n")
         #find a way to break up from answer and question and print them seperately 
         
     def game_rules(rules):
@@ -109,7 +115,7 @@ class Time(Riddler):
  
         time.sleep(1)
         total_seconds -= 1
- 
+    #maybe make a heart system 
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
  
