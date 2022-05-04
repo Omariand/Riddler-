@@ -37,7 +37,7 @@ class Riddler:
             print(Riddler)
             
     def __repr__():
-        
+        #maybe make repr into game_rules becasue that is what repr
         
         
     def game_rules(self):
