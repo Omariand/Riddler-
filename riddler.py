@@ -96,7 +96,7 @@ class Time(Riddler):
     that may be taken as the user answers the riddles"""    
    
     def countdown(h, m, s):
-        total_seconds = h * 3600 + m * 60 + s
+        total_seconds = m * 60 + s
         
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
@@ -109,9 +109,8 @@ class Time(Riddler):
     You set off the bomb Batman, lets see how you'll save Gotham now")
  
 
-    h = input("Enter the time in hours: ")
-    m = input("Enter the time in minutes: ")
-    s = input("Enter the time in seconds: ")
+    m = 3
+    s = 0
     countdown(int(h), int(m), int(s)) 
      
     def play_game(self,player):
