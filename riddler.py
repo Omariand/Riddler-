@@ -1,3 +1,4 @@
+from typing_extensions import Self
 from wsgiref.util import shift_path_info
 from time import time
 from time import sleep
@@ -95,7 +96,7 @@ class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""    
    
-    def countdown(h, m, s):
+    def countdown(m = 3, s = 0):
         total_seconds = m * 60 + s
         
         while total_seconds > 0:
@@ -108,10 +109,7 @@ class Time(Riddler):
     print("Oh No! It looks like you've ran out of time.\
     You set off the bomb Batman, lets see how you'll save Gotham now")
  
-
-    m = 3
-    s = 0
-    countdown(int(h), int(m), int(s)) 
+    countdown(Self) 
      
     def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
