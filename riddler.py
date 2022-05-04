@@ -125,6 +125,7 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
+        guess = input(" ")
         if input(" ") == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
                 if you can answer this one")
