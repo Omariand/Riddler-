@@ -134,7 +134,7 @@ class Time(Riddler):
         guess = input(" ") 
         if input(" ") == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
-                if you can answer this one")
+                 can answer this one correctly")
             
         else:
             print("Good Try! But your answer was WRONG... Try Again >:) ")
