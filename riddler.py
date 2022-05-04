@@ -151,7 +151,7 @@ class Time(Riddler):
                 though. ?<.,>???>?><?>?>?-Riddler")
             
         
-    def time_deduction(self,player_time,game_time):
+    def time_deduction(self,game_time):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
@@ -163,12 +163,13 @@ class Time(Riddler):
             modifies the value of the "game_time" variable. (mutable)
         Returns:
             (int): an updated variable "game_time" with the deducted amount printed into the console.
-         """     
-        game_time = int(180("seconds remaining"))
-            t1 = time()
-            #input statement
-            t2 = time()
-            t2 - t1 = #seconds passed
+         """
+        deduction=0
+        game_time=180     
+        play_time = f"{game_time} seconds remaining"
+        print(play_time)
+        
+    time_deduction(10)        
             
             
         
@@ -197,7 +198,7 @@ if __name__ == "__main__":
     for riddle in textfile(args.file):
         # the !r tells the f-string to use the __repr__() method to generate
         # a string version of the address object
-        return Riddler()          
+        Riddler()          
             
     
 
