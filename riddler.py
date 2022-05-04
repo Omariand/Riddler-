@@ -169,7 +169,7 @@ class Time(Riddler):
         play_time = f"{game_time} seconds remaining"
         print(play_time)
         
-    time_deduction(10)        
+         
             
             
         
