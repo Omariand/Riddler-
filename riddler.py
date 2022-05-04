@@ -12,7 +12,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,player):
+    def __init__(self,player,rtxt):
         """This displays the players name.
 
         Args:
@@ -28,17 +28,18 @@ class Riddler:
         (?P<question>[^?\n]+.\s)
         (?:(?P<answer>.+))
         """
-        self.question_number = ('question_number')
-        self.question = ('question')
-        self.answer = ('answer')
+        searchtxt=re.search(expr,rtxt)
         
-        if re.search(expr) == None:
-            raise ValueError("This ")
-        else:
-            print(Riddler)
+        self.question_number=searchtxt.group(1)
+        self.question=searchtxt.group(2)
+        self.answer=searchtxt.group(3)
+        
             
-    def __repr__():
-        #maybe make repr into game_rules becasue that is what repr
+    def __repr__(self):
+        "Return formal riddle of the code"
+        return (
+            f"question: {self.question}\n"    
+            f"answer:   {self.answer}\n")
         
         
     def game_rules(self):
@@ -62,18 +63,17 @@ class Riddler:
 
                 #create seperate print statement for each line or triple quoted string.
                 #if triple quoted string, create global variable at top.
-    def read_riddle(self,r_file):
+    def read_riddle(r_file):
         """This takes a text file and reads the text file, then converts the 
         lines of the text file which will return the riddle given
         Args: 
             textfile
         Returns:
                 Prints read riddle statement"""
-        elist=[]
         with open(r_file,"r",encoding="utf-8") as f:
-            for line in f:
-                rlist=elist.append(line.strip("?"))  
-                return rlist
+            riddle_path=[Riddler(line.strip()) for line in f]
+            return riddle_path
+            
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
         
@@ -88,7 +88,7 @@ class Riddler:
         elist=[]
         with open(a_file,"r",encoding="utf-8") as f:
             for line in f:
-                alist=elist.append(line.strip("?",left))
+                alist=elist.append(line.strip("?",))
                 return alist    
     
     
