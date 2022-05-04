@@ -35,6 +35,9 @@ class Riddler:
             raise ValueError("This ")
         else:
             print(Riddler)
+            
+    def __repr__():
+        
         
         
     def game_rules(self):
@@ -72,13 +75,6 @@ class Riddler:
                 return rlist
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
-        expr = r"""
-        (?xm)
-        ^
-        (?:(?P<question_number>\d(?:\d)?\.)\s)
-        (?P<question>[^?\n]+.\s)
-        (?:(?P<answer>.+))
-        """
         
     def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
