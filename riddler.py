@@ -8,20 +8,21 @@ import random
 import pandas as pd
 import re
 
+emptydict= {}
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,player,rtxt):
+    def __init__(self,rtxt):
         """This displays the players name.
 
         Args:
-            player (str): Player name
+            rtxt (str): holds the riddle as a text string and parse it to dictionary
         Side effects:
             displays an instance of the variable."""
-        self.player = player
         #no need to store player name 
+
         
         expr = r"""
         (?xm)
@@ -35,6 +36,8 @@ class Riddler:
         self.question_number=searchtxt.group("question_number")
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
+        emptydict[self.question]=self.answer
+        
         #make a dictionary of the riddle and then complies them 
         #dictionary may have easier functionality 
         #need to be stored somewhere, maybe list of tuples
@@ -84,7 +87,7 @@ class Riddler:
                 Prints read riddle statement"""
         with open(r_file,"r",encoding="utf-8") as f:
             riddle_path=[Riddler(line.strip()) for line in f]
-            return riddle_path
+        return riddle_path
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
@@ -120,35 +123,7 @@ class Time(Riddler):
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
     ##Old code
-    # Create class that acts as a countdown
-    def countdown(h, m, s):
- 
-    # Calculate the total number of seconds
-        total_seconds = h * 3600 + m * 60 + s
- 
-    # While loop that checks if total_seconds reaches zero
-    # If not zero, decrement total time by one second
-        while total_seconds > 0:
- 
-        # Timer represents time left on countdown
-            timer = datetime.timedelta(seconds = total_seconds)
-        
-        # Prints the time left on the timer
-            print(timer, end="\r")
- 
-        # Delays the program one second
-        time.sleep(1)
- 
-        # Reduces total time by one second
-        total_seconds -= 1
- 
-    print("Bzzzt! The countdown is at zero seconds!")
- 
-# Inputs for hours, minutes, seconds on timer
-h = input("Enter the time in hours: ")
-m = input("Enter the time in minutes: ")
-s = input("Enter the time in seconds: ")
-countdown(int(h), int(m), int(s))
+    
  
     
      
