@@ -7,20 +7,19 @@ import datetime
 import random 
 import pandas as pd
 import re
-
+emptydict={}
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,player,rtxt):
+    def __init__(self,rtxt):
         """This displays the players name.
 
         Args:
             player (str): Player name
         Side effects:
             displays an instance of the variable."""
-        self.player = player
         #no need to store player name 
         
         expr = r"""
@@ -31,10 +30,10 @@ class Riddler:
         (?:(?P<answer>.+))
         """
         searchtxt=re.search(expr,rtxt)
-        
         self.question_number=searchtxt.group("question_number")
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
+        emptydict[self.question]=self.answer
         #make a dictionary of the riddle and then complies them 
         #dictionary may have easier functionality 
         #need to be stored somewhere, maybe list of tuples
