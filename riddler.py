@@ -8,21 +8,20 @@ import random
 import pandas as pd
 import re
 
-emptydict= {}
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,rtxt):
+    def __init__(self,player,rtxt):
         """This displays the players name.
 
         Args:
-            rtxt (str): holds the riddle as a text string and parse it to dictionary
+            player (str): Player name
         Side effects:
             displays an instance of the variable."""
+        self.player = player
         #no need to store player name 
-
         
         expr = r"""
         (?xm)
@@ -36,8 +35,6 @@ class Riddler:
         self.question_number=searchtxt.group("question_number")
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
-        emptydict[self.question]=self.answer
-        
         #make a dictionary of the riddle and then complies them 
         #dictionary may have easier functionality 
         #need to be stored somewhere, maybe list of tuples
@@ -45,12 +42,11 @@ class Riddler:
         #make value the answer
         #or make key the number
         #value be the a tuple or index zero is riddle    
-    def __repr__(self):
-        "Return formal riddle of the code"
-        return (
-            f"question_number: {self.question_number}\n"
-            f"question: {self.question}\n"    
-            f"answer:   {self.answer}\n")
+    #def __repr__(self):
+        #"Return formal riddle of the code"
+        #return (
+            #f"question: {self.question}\n"    
+            #f"answer:   {self.answer}\n")
         #find a way to break up from answer and question and print them seperately 
         
     def game_rules(rules):
@@ -87,11 +83,12 @@ class Riddler:
                 Prints read riddle statement"""
         with open(r_file,"r",encoding="utf-8") as f:
             riddle_path=[Riddler(line.strip()) for line in f]
-        return riddle_path
+            return riddle_path
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
         #find a way to randomize the riddles in the txtfile before being called or after 
+        #need to change this to it actually making the file for the riddle a dictionary 
     #def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
@@ -122,12 +119,10 @@ class Time(Riddler):
     #maybe make a heart system 
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
-    ##Old code
-    
  
     
      
-    def play_game(self):
+    def play_game(self,player):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad\
             guess the deduction would be taken off. 
@@ -137,11 +132,11 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-        guess = input(" ") 
-        if guess == self.answer:
+        if input(" ") == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
-                 can answer this one correctly")
-        elif guess != self.answer:
+                if you can answer this one")
+            
+        else:
             print("Good Try! But your answer was WRONG... Try Again >:) ")
 
                 
