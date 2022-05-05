@@ -119,9 +119,7 @@ class Time(Riddler):
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
  
-    
-     
-    def play_game(self,player):
+    def play_game(self):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad\
             guess the deduction would be taken off. 
@@ -131,13 +129,13 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-        if input(" ") == self.answer:
+        guess = input(" ") 
+        if guess == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
-                if you can answer this one")
-            
-        else:
+                 can answer this one correctly")
+        elif guess != self.answer:
             print("Good Try! But your answer was WRONG... Try Again >:) ")
-
+     
                 
     def game_over(self):
         """stops game if the player answers the game correclty or the \
@@ -146,7 +144,7 @@ class Time(Riddler):
                 
 
             
-    def winner(self,player):
+    #def winner(self,player):
         """ This fuction will provide the player to either continue the game
         or end the game if they get the riddle correct. If the player beats all 
         of the riddles they will recive a congratulatory message.
@@ -164,7 +162,7 @@ class Time(Riddler):
                 though. ?<.,>???>?><?>?>?-Riddler")
             
         
-    def time_deduction(self,game_time):
+    def wireline(self,game_time)ß:
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
