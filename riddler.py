@@ -42,11 +42,12 @@ class Riddler:
         #make value the answer
         #or make key the number
         #value be the a tuple or index zero is riddle    
-    #def __repr__(self):
-        #"Return formal riddle of the code"
-        #return (
-            #f"question: {self.question}\n"    
-            #f"answer:   {self.answer}\n")
+    def __repr__(self):
+        "Return formal riddle of the code"
+        return (
+            f"question_number: {self.question_number}\n"
+            f"question: {self.question}\n"    
+            f"answer:   {self.answer}\n")
         #find a way to break up from answer and question and print them seperately 
         
     def game_rules(rules):
@@ -121,7 +122,7 @@ class Time(Riddler):
  
     
      
-    def play_game(self,player):
+    def play_game(self):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad\
             guess the deduction would be taken off. 
