@@ -57,20 +57,18 @@ class Riddler:
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
         """
-        rules = f"""Welcome Player. Are you ready to play The Riddler Game?
-            So here are the Rules
+        rules = f"""Welcome Player. 
+        Are you ready to play The Riddler Game?
+            Here are the Rules:
             
             1. You will be given a riddle, that they have to answer 
-                with a  timer that goes down every second you take 
+                with a  timer that goes down every second you take .
                 
             2.  If you make one mistake the time goes 10 to 20 to 30 seconds 
-                faster and then this will continue until the BOMB goes \
-                    off or you answer the riddle correctly
+                faster and then this will continue until the BOMB goes off or you answer the riddle correctly.
                 
-            3. This will happen 5 times until the user saves the city and there\
-                will be times for each bomb upcoming and there will be \
-                    significantly lower or harder as a riddle compared \
-                        to the last one.
+            3. This will happen 5 times until the user saves the city and there will be times for each bomb upcoming and there will be
+                    significantly lower or harder as a riddle compared to the last one.
             
             4.The user or “Batman” if failed will have the city destroyed and
                 a statement would be printed that they lose.
@@ -138,7 +136,7 @@ class Time(Riddler):
  
     def play_game(self):
         """ This function will allow the player to guess the riddle through 
-        amount of guesses. This will call the deduction method and for each bad\
+        amount of guesses. This will call the deduction method and for each bad.
             guess the deduction would be taken off. 
         Args: 
             str()s which may be the user input and holds that in until called for.
@@ -179,7 +177,7 @@ class Time(Riddler):
                 though. ?<.,>???>?><?>?>?-Riddler")
             
         
-    def wireline(self,game_time):
+    def wireline(self,player):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
@@ -192,10 +190,11 @@ class Time(Riddler):
         Returns:
             (int): an updated variable "game_time" with the deducted amount printed into the console.
          """
-        deduction = 0
-        game_time=180     
-        play_time = f"{game_time} seconds remaining"
-        print(play_time)
+        player=0 
+        player_lives=3   
+        if player bad_guesses() > 3:
+        
+            print(play_time)
         
                 
 def parse_args(arglist):
