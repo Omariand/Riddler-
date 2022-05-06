@@ -78,33 +78,33 @@ class Riddler:
                 """
         print(rules)
 
-    def read_riddle(r_file):
-        """This takes a text file and reads the text file, then converts the 
-        lines of the text file which will return the riddle given
-        Args: 
-            textfile
-        Returns:
-                Prints read riddle statement"""
-        with open(r_file,"r",encoding="utf-8") as f:
-            riddle_path=[Riddler(line.strip()) for line in f]
-            return riddle_path
+def read_riddle(r_file):
+    """This takes a text file and reads the text file, then converts the 
+    lines of the text file which will return the riddle given
+    Args: 
+        textfile
+    Returns:
+            Prints read riddle statement"""
+    with open(r_file,"r",encoding="utf-8") as f:
+        riddle_path=[Riddler(line.strip()) for line in f]
+        return riddle_path
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
         #find a way to randomize the riddles in the txtfile before being called or after 
         #need to change this to it actually making the file for the riddle a dictionary 
-    def read_answer(self, a_file):
-        """This takes a text file reads the text file then converts the lines
-        of the text file return the answer of the riddle
-        Args: 
-            self: an instance of the Riddler class
-            param: textfile
-        Returns:
-                Prints Riddle answer"""
-        with open(a_file,"r",encoding="utf-8") as f:
-            for line in f:
-                alist=alist.append(line.strip("?",))
-                return alist    
+def read_answer(self, a_file):
+    """This takes a text file reads the text file then converts the lines
+    of the text file return the answer of the riddle
+    Args: 
+        self: an instance of the Riddler class
+        param: textfile
+    Returns:
+            Prints Riddle answer"""
+    with open(a_file,"r",encoding="utf-8") as f:
+        for line in f:
+            alist=alist.append(line.strip("?",))
+            return alist    
     
     
 class Time(Riddler):
@@ -112,15 +112,13 @@ class Time(Riddler):
     that may be taken as the user answers the riddles"""    
    
     def countdown(m):
-        print(f"Ok Batman, I'll give you the benifit of the doubt. You can input\
-            your own time! But you have 180000 milliseconds, Can you guess that\
-                in minutes? Good Luck >:) ")
+        print(f"Be careful Batman, You'll only have 3 mins add \
+            anymore time then that and the place will blow.")
         total_seconds = m * 60
         
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
             if m > 3:
-                print("I told you only 180000 milliseconds! NO MORE THAN THAT")
                 break
         print(timer, end="\r")
  
@@ -199,14 +197,7 @@ class Time(Riddler):
         play_time = f"{game_time} seconds remaining"
         print(play_time)
         
-         
-            
-            
-        
-
-
-        
-            
+                
 def parse_args(arglist):
     """ Parse command-line arguments.
     
