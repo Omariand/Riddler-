@@ -1,12 +1,14 @@
 #from tkinter.messagebox import QUESTION
 from typing_extensions import Self
 #from wsgiref.util import shift_path_info
+from argparse import ArgumentParser
 from time import time
 from time import sleep
 import datetime
 import random 
 import pandas as pd
 import re
+import sys
 emptydict={}
 
 class Riddler:
@@ -91,7 +93,7 @@ class Riddler:
         #capture the anwser with a capturing group
         #find a way to randomize the riddles in the txtfile before being called or after 
         #need to change this to it actually making the file for the riddle a dictionary 
-    #def read_answer(self, a_file):
+    def read_answer(self, a_file):
         """This takes a text file reads the text file then converts the lines
         of the text file return the answer of the riddle
         Args: 
