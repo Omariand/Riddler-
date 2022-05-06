@@ -1,13 +1,16 @@
 #from tkinter.messagebox import QUESTION
 from typing_extensions import Self
 #from wsgiref.util import shift_path_info
+from argparse import ArgumentParser
 from time import time
-#from time import sleep
+from time import sleep
 import datetime
 import random 
 import pandas as pd
 import re
+import sys
 emptydict={}
+
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
     this class will provide funtions that display the rules, starts the game and
@@ -34,6 +37,7 @@ class Riddler:
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
         emptydict[self.question]=self.answer
+        
         #make a dictionary of the riddle and then complies them 
         #dictionary may have easier functionality 
         #need to be stored somewhere, maybe list of tuples
@@ -41,11 +45,12 @@ class Riddler:
         #make value the answer
         #or make key the number
         #value be the a tuple or index zero is riddle    
-    #def __repr__(self):
-        #"Return formal riddle of the code"
-        #return (
-            #f"question: {self.question}\n"    
-            #f"answer:   {self.answer}\n")
+    def __repr__(self):
+        "Return formal riddle of the code"
+        return (
+            f"question_answer{self.question_number}\n"
+            f"question: {self.question}\n"    
+            f"answer:   {self.answer}\n")
         #find a way to break up from answer and question and print them seperately 
         
     def game_rules(rules):
@@ -73,48 +78,60 @@ class Riddler:
                 """
         print(rules)
 
-    def read_riddle(r_file):
-        """This takes a text file and reads the text file, then converts the 
-        lines of the text file which will return the riddle given
-        Args: 
-            textfile
-        Returns:
-                Prints read riddle statement"""
-        with open(r_file,"r",encoding="utf-8") as f:
-            riddle_path=[Riddler(line.strip()) for line in f]
-            return riddle_path
+def read_riddle(r_file):
+    """This takes a text file and reads the text file, then converts the 
+    lines of the text file which will return the riddle given
+    Args: 
+        textfile
+    Returns:
+            Prints read riddle statement"""
+    with open(r_file,"r",encoding="utf-8") as f:
+        riddle_path=[Riddler(line.strip()) for line in f]
+        return riddle_path
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
         #find a way to randomize the riddles in the txtfile before being called or after 
         #need to change this to it actually making the file for the riddle a dictionary 
-    #def read_answer(self, a_file):
-        """This takes a text file reads the text file then converts the lines
-        of the text file return the answer of the riddle
-        Args: 
-            self: an instance of the Riddler class
-            param: textfile
-        Returns:
-                Prints Riddle answer"""
-        with open(a_file,"r",encoding="utf-8") as f:
-            for line in f:
-                alist=alist.append(line.strip("?",))
-                return alist    
+def read_answer(self, a_file):
+    """This takes a text file reads the text file then converts the lines
+    of the text file return the answer of the riddle
+    Args: 
+        self: an instance of the Riddler class
+        param: textfile
+    Returns:
+            Prints Riddle answer"""
+    with open(a_file,"r",encoding="utf-8") as f:
+        for line in f:
+            alist=alist.append(line.strip("?",))
+            return alist    
     
     
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""    
    
-    def countdown(m = 3, s = 0):
-        total_seconds = m * 60 + s
+    def countdown(m):
+        print(f"Be careful Batman, You'll only have 3 mins add \
+            anymore time then that and the place will blow.")
+        total_seconds = m * 60
         
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
-            print(timer, end="\r")
+            if m > 3:
+                break
+        print(timer, end="\r")
  
+        # Delays the program one second
         time.sleep(1)
+ 
+        # Reduces total time by one second
         total_seconds -= 1
+    m = input("Enter the time in minutes: ")
+    countdown(int(m))
+ 
+
+        
     #maybe make a heart system 
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
@@ -180,14 +197,7 @@ class Time(Riddler):
         play_time = f"{game_time} seconds remaining"
         print(play_time)
         
-         
-            
-            
-        
-
-
-        
-            
+                
 def parse_args(arglist):
     """ Parse command-line arguments.
     
