@@ -2,7 +2,7 @@
 from typing_extensions import Self
 #from wsgiref.util import shift_path_info
 from time import time
-#from time import sleep
+from time import sleep
 import datetime
 import random 
 import pandas as pd
@@ -109,15 +109,27 @@ class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""    
    
-    def countdown(m = 3, s = 0):
-        total_seconds = m * 60 + s
+    def countdown(m):
+        print(f"Be careful Batman, You'll only have 3 mins add \
+            anymore time then that and the place will blow.")
+        total_seconds = m * 60
         
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
-            print(timer, end="\r")
+            if m > 3:
+                break
+        print(timer, end="\r")
  
+        # Delays the program one second
         time.sleep(1)
+ 
+        # Reduces total time by one second
         total_seconds -= 1
+    m = input("Enter the time in minutes: ")
+    countdown(int(m))
+ 
+
+        
     #maybe make a heart system 
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
