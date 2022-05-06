@@ -110,8 +110,9 @@ class Time(Riddler):
     that may be taken as the user answers the riddles"""    
    
     def countdown(m):
-        print(f"Be careful Batman, You'll only have 3 mins add \
-            anymore time then that and the place will blow.")
+        print(f"Ok Batman, I'll give you the benifit of the doubt. You can input\
+            your own time! But you have 180000 milliseconds, Can you guess that\
+                in minutes? Good Luck >:) ")
         total_seconds = m * 60
         
         while total_seconds > 0:
