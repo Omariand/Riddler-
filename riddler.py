@@ -177,7 +177,7 @@ class Time(Riddler):
                 though. ?<.,>???>?><?>?>?-Riddler")
             
         
-    def wireline(self,player):
+    def wireline(self,play_answer):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
@@ -190,11 +190,12 @@ class Time(Riddler):
         Returns:
             (int): an updated variable "game_time" with the deducted amount printed into the console.
          """
-        player=0 
-        player_lives=3   
-        if player bad_guesses() > 3:
-        
-            print(play_time)
+        #while guess is not == play_answer 3 times:
+            #print(you  done batman)
+        #else:
+            #print(good job batman)
+        #PSEUDOCODE
+
         
                 
 def parse_args(arglist):
