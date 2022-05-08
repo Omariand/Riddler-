@@ -37,7 +37,7 @@ class Riddler:
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
         emptydict[self.question]=self.answer
-        
+        #add guesses to the init method and good guesses and bad guesses to be stored as a set
         #make a dictionary of the riddle and then complies them 
         #dictionary may have easier functionality 
         #need to be stored somewhere, maybe list of tuples
@@ -91,7 +91,7 @@ def read_riddle(r_file):
         #capture the anwser with a capturing group
         #find a way to randomize the riddles in the txtfile before being called or after 
         #need to change this to it actually making the file for the riddle a dictionary 
-def read_answer(self, a_file):
+#def read_answer(self, a_file):
     """This takes a text file reads the text file then converts the lines
     of the text file return the answer of the riddle
     Args: 
@@ -144,6 +144,9 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
+        self.game_rules()
+        read_riddle()
+        self.countdown()
         guess = input(" ") 
         if guess == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
@@ -159,7 +162,7 @@ class Time(Riddler):
                 
 
             
-    #def winner(self,player):
+    def play_again(self):
         """ This fuction will provide the player to either continue the game
         or end the game if they get the riddle correct. If the player beats all 
         of the riddles they will recive a congratulatory message.
@@ -190,6 +193,8 @@ class Time(Riddler):
         Returns:
             (int): an updated variable "game_time" with the deducted amount printed into the console.
          """
+         #uses len(bad_guesses) =3: 
+         #game_over()
         #while guess is not == play_answer 3 times:
             #print(you  done batman)
         #else:
