@@ -117,6 +117,7 @@ class Time(Riddler):
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
             if m > 3:
+                print("I told you only 3 minutes! NO MORE THAN THAT")
                 break
         print(timer, end="\r")
  
