@@ -16,7 +16,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,rtxt,guesses,guessed_words):
+    def __init__(self,rtxt):
         """This displays the players name.
 
         Args:
@@ -37,6 +37,8 @@ class Riddler:
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
         emptydict[self.question]=self.answer
+        self.guesses=guesses 
+        
         #add guesses to the init method and good guesses and bad guesses to be stored as a set
         #make a dictionary of the riddle and then complies them 
         #dictionary may have easier functionality 
