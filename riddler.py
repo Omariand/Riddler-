@@ -1,6 +1,4 @@
-#from tkinter.messagebox import QUESTION
 from typing_extensions import Self
-#from wsgiref.util import shift_path_info
 from argparse import ArgumentParser
 from time import time
 from time import sleep
@@ -23,7 +21,6 @@ class Riddler:
             player (str): Player name
         Side effects:
             displays an instance of the variable."""
-        #no need to store player name 
         
         expr = r"""
         (?xm)
@@ -38,6 +35,7 @@ class Riddler:
         self.answer=searchtxt.group("answer")
         emptydict[self.question]=self.answer
         self.guesses=guesses 
+
         
         #add guesses to the init method and good guesses and bad guesses to be stored as a set
         #make a dictionary of the riddle and then complies them 
