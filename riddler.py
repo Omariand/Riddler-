@@ -4,10 +4,11 @@ from time import time
 from time import sleep
 import datetime
 import random 
-import pandas as pd
+from random import choice 
 import re
 import sys
 emptydict={}
+LEN_GUESSES = 3
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
@@ -91,19 +92,6 @@ def read_riddle(r_file):
         #capture the anwser with a capturing group
         #find a way to randomize the riddles in the txtfile before being called or after 
         #need to change this to it actually making the file for the riddle a dictionary 
-#def read_answer(self, a_file):
-    """This takes a text file reads the text file then converts the lines
-    of the text file return the answer of the riddle
-    Args: 
-        self: an instance of the Riddler class
-        param: textfile
-    Returns:
-            Prints Riddle answer"""
-    with open(a_file,"r",encoding="utf-8") as f:
-        for line in f:
-            alist=alist.append(line.strip("?",))
-            return alist    
-    
     
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
@@ -135,7 +123,7 @@ class Time(Riddler):
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
  
-    def play_game(self):
+    def play_game(self, word_state):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad.
             guess the deduction would be taken off. 
@@ -145,15 +133,22 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-        self.game_rules()
-        read_riddle()
-        self.countdown()
-        guess = input(" ") 
-        if guess == self.answer:
-            print("Well Done Batman, onto the next riddle. Let's see if you \
+        guess = input(" ")
+        while True:
+            word = choice(self.guesses)
+            for riddle in word:
+                if riddle in word_state.len_guesses:
+                    break
+                else:
+                    guess = guess + riddle
+                    break
+        return guess
+
+            if guess == self.answer:
+                print("Well Done Batman, onto the next riddle. Let's see if you \
                  can answer this one correctly")
-        elif guess != self.answer:
-            print("Good Try! But your answer was WRONG... Try Again >:) ")
+            elif guess != self.answer:
+                print("Good Try! But your answer was WRONG... Try Again >:) ")
      
                 
     def game_over(self):
