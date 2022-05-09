@@ -16,7 +16,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,rtxt):
+    def __init__(self,rtxt,guesses,guessed_words):
         """This displays the players name.
 
         Args:
@@ -84,7 +84,7 @@ def read_riddle(r_file):
     Returns:
             Prints read riddle statement"""
     with open(r_file,"r",encoding="utf-8") as f:
-        riddle_path=[Riddler(line.strip()) for line in f]
+        riddle_path=[Riddler(self.rtxt)(line.strip()) for line in f]
         return riddle_path
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
