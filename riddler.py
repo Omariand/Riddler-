@@ -133,6 +133,7 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
+<<<<<<< HEAD
         guess = input(" ")
         while True:
             word = choice(self.guesses)
@@ -146,6 +147,15 @@ class Time(Riddler):
 
             if guess == self.answer:
                 print("Well Done Batman, onto the next riddle. Let's see if you \
+=======
+        self.game_rules()
+        read_riddle()
+        self.countdown()
+        guess = input(" ") 
+        
+        if guess == self.answer:
+            print("Well Done Batman, onto the next riddle. Let's see if you \
+>>>>>>> 31e839c139ee9c15644ad7f4b20af3be40991664
                  can answer this one correctly")
             elif guess != self.answer:
                 print("Good Try! But your answer was WRONG... Try Again >:) ")
