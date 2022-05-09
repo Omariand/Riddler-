@@ -150,6 +150,7 @@ class Time(Riddler):
         read_riddle()
         self.countdown()
         guess = input(" ") 
+        
         if guess == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you \
                  can answer this one correctly")
