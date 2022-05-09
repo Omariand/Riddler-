@@ -8,6 +8,7 @@ import pandas as pd
 import re
 import sys
 emptydict={}
+LEN_GUESSES = 3
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
