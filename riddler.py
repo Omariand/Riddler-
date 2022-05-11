@@ -1,4 +1,4 @@
-from typing_extensions import Self
+
 from argparse import ArgumentParser
 from time import time
 from time import sleep
@@ -15,7 +15,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,rtxt,guesses,answer,guessed_words):
+    def __init__(self,rtxt):
         """This displays the players name.
 
         Args:
@@ -35,6 +35,7 @@ class Riddler:
         self.question=searchtxt.group("question")
         self.answer=searchtxt.group("answer")
         emptydict[self.question]=self.answer
+        guesses=[]
         self.guesses=guesses 
 
         
@@ -46,7 +47,7 @@ class Riddler:
         #make value the answer
         #or make key the number
         #value be the a tuple or index zero is riddle    
-    def __repr__(self):
+    #def __repr__(self):
         "Return formal riddle of the code"
         return (
             f"question_answer{self.question_number}\n"
@@ -54,7 +55,7 @@ class Riddler:
             f"answer:   {self.answer}\n")
         #find a way to break up from answer and question and print them seperately 
         
-    def game_rules(rules):
+    def game_rules(self):
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
         """
@@ -77,16 +78,18 @@ class Riddler:
                 """
         print(rules)
 
-def read_riddle(r_file):
-    """This takes a text file and reads the text file, then converts the 
+    def read_riddle(r_file):
+        """This takes a text file and reads the text file, then converts the 
     lines of the text file which will return the riddle given
     Args: 
         textfile
     Returns:
             Prints read riddle statement"""
-    with open(r_file,"r",encoding="utf-8") as f:
-        riddle_path=[Riddler(self.rtxt)(line.strip()) for line in f]
-        return riddle_path
+        
+        with open(r_file,"r",encoding="utf-8") as f:
+            lines=[line for line in f.readlines()]
+            
+            
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
@@ -97,25 +100,25 @@ class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""    
    
-    def countdown(m):
+    def countdown(self):
         print(f"Be careful Batman, You'll only have 3 mins add \
             anymore time then that and the place will blow.")
+        m = input("Enter the time in minutes: ")
         total_seconds = m * 60
-        
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
             if m > 3:
                 print("I told you only 3 minutes! NO MORE THAN THAT")
                 break
+            sleep(1)
+            total_seconds-=1
         print(timer, end="\r")
- 
+        #raise error for negative number
         # Delays the program one second
-        time.sleep(1)
+        
  
         # Reduces total time by one second
-        total_seconds -= 1
-    m = input("Enter the time in minutes: ")
-    countdown(int(m))
+    
  
 
         
@@ -123,7 +126,7 @@ class Time(Riddler):
     print("""Oh No! It looks like you've ran out of time.
     You set off the bomb Batman, lets see how you'll save Gotham now""")
  
-    def play_game(self, word_state):
+    def play_game(self):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad.
             guess the deduction would be taken off. 
@@ -133,12 +136,13 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-
+        self.game_rules()
+        time_left= self.countdown()
         guess = input(" ")
-        while True:
+        while guesses <3 and countdown():
             word = choice(self.guesses)
             for riddle in word:
-                if riddle in word_state.len_guesses:
+                if riddle in LEN_GUESSES:
                     break
                 else:
                     guess = guess + riddle
@@ -148,8 +152,8 @@ class Time(Riddler):
         if guess == self.answer:
             print("Well Done Batman, onto the next riddle. Let's see if you\
                  can answer this one correctly")
-            elif guess != self.answer:
-                print("Good Try! But your answer was WRONG... Try Again >:) ")
+            #elif guess != self.answer:
+                #print("Good Try! But your answer was WRONG... Try Again >:) ")
      
                 
     def game_over(self):
@@ -177,7 +181,7 @@ class Time(Riddler):
                 though. ?<.,>???>?><?>?>?-Riddler")
             
         
-    def wireline(self,play_answer):
+    #def wireline(self,play_answer):
         """ For this method we will be using the import time to deduct time 
         as the player begins to answer the riddle. If the answer given the 
         timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
@@ -218,10 +222,11 @@ def parse_args(arglist):
 
 if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
-    for riddle in r_file(args.file):
+    game= Riddler(args.file)
+    game.play_game()
         # the !r tells the f-string to use the __repr__() method to generate
         # a string version of the address object
-        Riddler()          
+    
         #flow chart of how your code should flow and then structure the name block     
     
 
