@@ -15,7 +15,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,rtxt,guesses):
+    def __init__(self,rtxt,guesses,answer,guessed_words):
         """This displays the players name.
 
         Args:
