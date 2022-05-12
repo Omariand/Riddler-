@@ -107,24 +107,17 @@ class Time(Riddler):
         total_seconds = m * 60
         while total_seconds > 0:
             timer = datetime.timedelta(seconds = total_seconds)
+            print(timer, end="\r")
             if m > 3:
                 print("I told you only 3 minutes! NO MORE THAN THAT")
                 break
-            sleep(1)
+            time.sleep(1)
             total_seconds-=1
-        print(timer, end="\r")
-        #raise error for negative number
-        # Delays the program one second
-        
- 
-        # Reduces total time by one second
-    
- 
+            print("Oh No! It looks like you've ran out of time.\
+                You set off the bomb Batman, lets see how you'll save Gotham now")
+    m = input("Enter the time in minutes:")
+    countdown(int(m))
 
-        
-    #maybe make a heart system 
-    print("""Oh No! It looks like you've ran out of time.
-    You set off the bomb Batman, lets see how you'll save Gotham now""")
  
     def play_game(self):
         """ This function will allow the player to guess the riddle through 
