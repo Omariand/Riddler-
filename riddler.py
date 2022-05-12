@@ -1,6 +1,5 @@
 
 from argparse import ArgumentParser
-from time import time
 import time
 from time import *
 from time import sleep
@@ -11,6 +10,19 @@ import re
 import sys
 emptydict={}
 LEN_GUESSES = 3
+
+def read_riddle(r_file):
+        """This takes a text file and reads the text file, then converts the 
+    lines of the text file which will return the riddle given
+    Args: 
+        textfile
+    Returns:
+            Prints read riddle statement"""
+        
+        with open(r_file,"r",encoding="utf-8") as f:
+            lines=[line for line in f.readlines()]
+        return lines 
+                
 
 class Riddler:
     """The Riddler Class represents how the game will played and the game it self
@@ -80,18 +92,6 @@ class Riddler:
                 """
         print(rules)
 
-def read_riddle(r_file):
-    """This takes a text file and reads the text file, then converts the 
-lines of the text file which will return the riddle given
-Args: 
-    textfile
-Returns:
-        Prints read riddle statement"""
-    
-    with open(r_file,"r",encoding="utf-8") as f:
-        lines=[line for line in f.readlines()]
-    return lines 
-            
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
         #capture the question including question mark with one capturing group 
         #capture the anwser with a capturing group
