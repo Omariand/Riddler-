@@ -11,7 +11,7 @@ import sys
 emptydict={}
 LEN_GUESSES = 3
 
-def read_riddle(r_file):
+def read_riddle(filename):
         """This takes a text file and reads the text file, then converts the 
     lines of the text file which will return the riddle given
     Args: 
@@ -19,7 +19,7 @@ def read_riddle(r_file):
     Returns:
             Prints read riddle statement"""
         
-        with open(r_file,"r",encoding="utf-8") as f:
+        with open(filename,"r",encoding="utf-8") as f:
             lines=[line for line in f.readlines()]
         return lines 
                 
@@ -29,7 +29,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self,rtxt):
+    def __init__(self,filename):
             """This displays the players name.
 
             Args:
@@ -37,14 +37,13 @@ class Riddler:
             Side effects:
                 displays an instance of the variable."""
             self.riddle_dict={}
-            expr = r"""
-            (?xm)
+            expr = r"""(?xm)
             ^
             (?:(?P<question_number>\d(?:\d)?\.)\s)
             (?P<question>[^?\n]+.\s)
             (?:(?P<answer>.+))
             """
-            riddle_list=read_riddle(rtxt)
+            riddle_list=read_riddle(filename)
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
                 self.question_number=searchtxt.group("question_number")
@@ -100,8 +99,21 @@ class Riddler:
     
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
-    that may be taken as the user answers the riddles"""    
-   
+    that may be taken as the user answers the riddles"""
+    
+    def __init__(self, filename):
+        super().__init__(filename)    
+        self.start= None
+        self.curr= None
+    def start_timer()
+        start= time.now()
+    def end_timer()
+        diff= time.now -self.start
+        print(diff)
+    def get_time_elapsed():
+        time.now()- self.start
+        return z
+    
     def countdown(self):
             m = input("Enter the time in minutes:")
             m=int(m)
@@ -129,9 +141,11 @@ class Time(Riddler):
         """
         Riddler.game_rules()
         time_left= Time.countdown()
+        #change this as well
         Riddler.riddle_dict
         guesses = input(" ")
-        while guesses <3 and Time.countdown():
+        #while guesses <3 and Time.countdown():
+        #change this all of it, 
             word = choice(self.guesses)
             for riddle in word:
                 if riddle in LEN_GUESSES:
@@ -216,7 +230,10 @@ def parse_args(arglist):
 if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
     game= Riddler(args.file)
-    game.play_game()
+    game.game_rules()
+    time = Time(args.file)
+    time.countdown()
+    
         # the !r tells the f-string to use the __repr__() method to generate
         # a string version of the address object
     
