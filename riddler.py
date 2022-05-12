@@ -138,8 +138,8 @@ class Time(Riddler):
         """
         self.game_rules()
         time_left= self.countdown()
-        guess = input(" ")
-        while guesses <3 and countdown():
+        guesses = input(" ")
+        while guesses <3 and self.countdown():
             word = choice(self.guesses)
             for riddle in word:
                 if riddle in LEN_GUESSES:
