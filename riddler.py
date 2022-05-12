@@ -1,7 +1,12 @@
 
 from argparse import ArgumentParser
+<<<<<<< HEAD
 from mailbox import linesep
 from time import time
+=======
+import time
+from time import *
+>>>>>>> efb409a01575237df8579e78e4c7ab7b7f5e31a7
 from time import sleep
 import datetime
 import random 
