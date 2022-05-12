@@ -1,6 +1,7 @@
 
 from argparse import ArgumentParser
 import time
+from time import *
 from time import sleep
 import datetime
 import random 
