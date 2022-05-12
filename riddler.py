@@ -90,13 +90,9 @@ class Riddler:
                 Unless you win then a statement that you win will be diplayed
                 """
         print(rules)
-
-        #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
-        #capture the question including question mark with one capturing group 
-        #capture the anwser with a capturing group
-        #find a way to randomize the riddles in the txtfile before being called or after 
-        #need to change this to it actually making the file for the riddle a dictionary 
     
+    def user_questions(userguess,bad_guess,good_guess):
+        """Holds user answers and questions and give it to them, """
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""
@@ -182,7 +178,7 @@ class Time(Riddler):
         player= input("Would you like to play again <:^)")
          
         while player !="no":
-             self.play_game()
+            self.play_game()
         else: 
             print("Thank you for trying to save Gotham Batman you failed \
                 though. ?<.,>???>?><?>?>?-Riddler")
