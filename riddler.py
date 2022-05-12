@@ -1,6 +1,5 @@
 
 from argparse import ArgumentParser
-from mailbox import linesep
 from time import time
 import time
 from time import *
@@ -104,20 +103,20 @@ class Time(Riddler):
     that may be taken as the user answers the riddles"""    
    
     def countdown(self):
-        m = input("Enter the time in minutes:")
-        total_seconds = m * 60
-        while total_seconds > 0:
-            timer = datetime.timedelta(seconds = total_seconds)
-            print(timer, end="\r")
-            if m > 3:
-                print("I told you only 3 minutes! NO MORE THAN THAT")
-                break
-            time.sleep(1)
-            total_seconds-=1
+            m = input("Enter the time in minutes:")
+            m=int(m)
+            total_seconds = m * 60
+            while total_seconds > 0:
+                timer = datetime.timedelta(seconds = total_seconds)
+                print(timer, end="\r")
+                if m > 3:
+                    print("I told you only 3 minutes! NO MORE THAN THAT")
+                    break
+                sleep(1)
+                total_seconds-=1
             print("Oh No! It looks like you've ran out of time.\
-                You set off the bomb Batman, lets see how you'll save Gotham now")
+                    You set off the bomb Batman, lets see how you'll save Gotham now")
 
- 
     def play_game(self):
         """ This function will allow the player to guess the riddle through 
         amount of guesses. This will call the deduction method and for each bad.
@@ -128,10 +127,11 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-        self.game_rules()
-        time_left= self.countdown()
+        Riddler.game_rules()
+        time_left= Time.countdown()
+        Riddler.riddle_dict
         guesses = input(" ")
-        while guesses <3 and self.countdown():
+        while guesses <3 and Time.countdown():
             word = choice(self.guesses)
             for riddle in word:
                 if riddle in LEN_GUESSES:
@@ -142,6 +142,7 @@ class Time(Riddler):
                 return guess 
         
         if guess == self.answer:
+            
             print("Well Done Batman, onto the next riddle. Let's see if you\
                  can answer this one correctly")
             #elif guess != self.answer:
@@ -236,3 +237,5 @@ if __name__ == "__main__":
     #next round function - play game, rules, winner function
     #read txt file (1) - would read the file and take riddles
     #read txt file (2) - would read the file and take anwsers
+    
+#Time.countdown()
