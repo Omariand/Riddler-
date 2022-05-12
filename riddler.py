@@ -17,7 +17,7 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    def __init__(self):
+    def __init__(self,rtxt):
             """This displays the players name.
 
             Args:
@@ -32,7 +32,7 @@ class Riddler:
             (?P<question>[^?\n]+.\s)
             (?:(?P<answer>.+))
             """
-            riddle_list=read_riddle("riddles.txt")
+            riddle_list=read_riddle(rtxt)
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
                 self.question_number=searchtxt.group("question_number")
@@ -89,7 +89,7 @@ Returns:
         Prints read riddle statement"""
     
     with open(r_file,"r",encoding="utf-8") as f:
-        lines=[line.strip() for line in f.readlines()]
+        lines=[line for line in f.readlines()]
     return lines 
             
         #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
