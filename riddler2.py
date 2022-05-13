@@ -45,7 +45,7 @@ class Riddler:
             expr = r"""
             (?xm)
             ^
-            (?:(?P<question_number>\d(?:\d)?\.)\s)
+            (?:(?P<question_number>\d(?:\d)?).)
             (?P<question>[^?\n]+.\s)
             (?:(?P<answer>.+))
             """
