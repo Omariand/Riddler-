@@ -1,5 +1,6 @@
 
 from argparse import ArgumentParser
+from this import d
 import time
 from time import *
 from time import sleep
@@ -49,7 +50,7 @@ class Riddler:
                 self.question_number=searchtxt.group("question_number")
                 self.question=searchtxt.group("question")
                 self.answer=searchtxt.group("answer")
-                self.riddle_dict[self.question.strip()]=self.answer
+                self.riddle_dict[self.question.strip()]=self.answer.strip()
                 
 
             #add guesses to the init method and good guesses and bad guesses to be stored as a set
@@ -83,18 +84,18 @@ class Riddler:
         print(rules)
     
     def guess(self):
-            """Holds user answers and questions and give it to them, """
-            self.userguess=input("Make your guess")
+            """Holds user answers and questions and give it to them, """ 
             turns=3
             while turns > 0:
                 print(self.question)
-                self.userguess=input("Make your guess")
-                if self.userguess is not self.answer:
+                self.userguess=input("Make your guess:")
+                if self.userguess != self.answer:
                     turns=turns-1
                     print("You got it wrong try again.")
-                    
+                    if turns ==0:
+                        print(f"Game over Batman you lost! The correct answer was {self.answer}")    
                 else:
-                    print(f"{self.answer} is the correct answer good job Batman!")
+                    print(f"{self.answer} is the correct answer good job Batman! You saved the day")
                     return self.answer
                     
 class Time(Riddler):
