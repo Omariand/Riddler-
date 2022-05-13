@@ -58,16 +58,7 @@ class Riddler:
             #need to be stored somewhere, maybe list of tuples
         
         #add guesses to the init method and good guesses and bad guesses to be stored as a set
-        #make a dictionary of the riddle and then complies them 
-        #dictionary may have easier functionality 
-        #need to be stored somewhere, maybe list of tuples
-        #make riddle saying key
-        #make value the answer
-        #or make key the number
-        #value be the a tuple or index zero is riddle    
-    #def __repr__(self):
-        #find a way to break up from answer and question and print them seperately 
-        
+   
     def game_rules(self):
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
@@ -97,19 +88,6 @@ class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""
     
-    def __init__(self, filename):
-        super().__init__(filename)    
-        self.start= None
-        self.curr= None
-    def start_timer()
-        start= time.now()
-    def end_timer()
-        diff= time.now -self.start
-        print(diff)
-    def get_time_elapsed():
-        time.now()- self.start
-        return z
-    
     def countdown(self):
             m = input("Enter the time in minutes:")
             m=int(m)
@@ -138,18 +116,18 @@ class Time(Riddler):
         Riddler.game_rules()
         time_left= Time.countdown()
         #change this as well
-        Riddler.riddle_dict
+        Riddler.riddle_dictx
         guesses = input(" ")
         #while guesses <3 and Time.countdown():
         #change this all of it, 
-            word = choice(self.guesses)
-            for riddle in word:
-                if riddle in LEN_GUESSES:
+        word = choice(self.guesses)
+        for riddle in word:
+            if riddle in LEN_GUESSES:
                     break
-                else:
-                    guess = guess + riddle
-                    break
-                return guess 
+            else:
+                guess = guess + riddle
+                break
+        return guess 
         
         if guess == self.answer:
             
@@ -183,27 +161,6 @@ class Time(Riddler):
             print("Thank you for trying to save Gotham Batman you failed \
                 though. ?<.,>???>?><?>?>?-Riddler")
             
-        
-    #def wireline(self,play_answer):
-        """ For this method we will be using the import time to deduct time 
-        as the player begins to answer the riddle. If the answer given the 
-        timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
-        If the play continously answers incorrectly the timer will keep deducting 
-        30 seconds until the time is up
-        Args:
-        
-        Side effects:
-            modifies the value of the "game_time" variable. (mutable)
-        Returns:
-            (int): an updated variable "game_time" with the deducted amount printed into the console.
-         """
-         #uses len(bad_guesses) =3: 
-         #game_over()
-        #while guess is not == play_answer 3 times:
-            #print(you  done batman)
-        #else:
-            #print(good job batman)
-        #PSEUDOCODE
 
         
                 

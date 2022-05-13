@@ -11,7 +11,11 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-    rules = f"""Welcome Player. 
+    def game_rules(self):
+        """This function displays the instruction to the player so they
+            understand what tasks need to be done and the rules.
+        """
+        rules = f"""Welcome Player. 
         Are you ready to play The Riddler Game?
             Here are the Rules:
             
@@ -28,7 +32,7 @@ class Riddler:
                 a statement would be printed that they lose.
                 Unless you win then a statement that you win will be diplayed
                 """
-    print(rules)
+        print(rules)
 
     def __init__(self,rtxt):
             """This displays the players name.
@@ -45,7 +49,7 @@ class Riddler:
             (?P<question>[^?\n]+.\s)
             (?:(?P<answer>.+))
             """
-            riddle_list=read_riddle(rtxt)
+            riddle_list=self.read_riddle(rtxt)
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
                 self.question_number=searchtxt.group("question_number")
@@ -59,16 +63,6 @@ class Riddler:
             #dictionary may have easier functionality 
             #need to be stored somewhere, maybe list of tuples
         
-        #add guesses to the init method and good guesses and bad guesses to be stored as a set
-        #make a dictionary of the riddle and then complies them 
-        #dictionary may have easier functionality 
-        #need to be stored somewhere, maybe list of tuples
-        #make riddle saying key
-        #make value the answer
-        #or make key the number
-        #value be the a tuple or index zero is riddle    
-    #def __repr__(self):
-        #find a way to break up from answer and question and print them seperately 
         
     
     def play_game(self):
@@ -125,7 +119,7 @@ class Riddler:
 def parse_args(arglist):
     """ Parse command-line arguments.
     
-    Expect one mandatory argument, the path to a file of addresses.
+    Expect one mandatory argument, the path pytha file of addresses.
     
     Args:
         arglist (list of str): command-line arguments.
