@@ -59,10 +59,13 @@ class Riddler:
                 with a  timer that goes down every second you take .
                 
             2.  If you make one mistake the time goes 10 to 20 to 30 seconds 
-                faster and then this will continue until the BOMB goes off or you answer the riddle correctly.
+                faster and then this will continue until the BOMB goes off or\
+                    you answer the riddle correctly.
                 
-            3. This will happen 5 times until the user saves the city and there will be times for each bomb upcoming and there will be
-                    significantly lower or harder as a riddle compared to the last one.
+            3. This will happen 5 times until the user saves the city and there\
+                will be times for each bomb upcoming and there will be
+                significantly lower or harder as a riddle compared to the last\
+                    one.
             
             4.The user or “Batman” if failed will have the city destroyed and
                 a statement would be printed that they lose.
@@ -83,13 +86,17 @@ class Riddler:
                 if self.userguess != answer: 
                     turns=turns-1
                     if turns ==2:
-                        print("You got two wires left Batman, you are CUTTING it close AHAHAHAHA.")
+                        print("You got two wires left Batman, you are CUTTING \
+                            it close AHAHAHAHA.")
                     if turns ==1:
-                        print("You got one more left I would be SHIVERING in my boots if I was you :\)")
+                        print("You got one more left I would be SHIVERING in \
+                            my boots if I was you :\)")
                     if turns ==0:
-                        print(f"Game over Batman you lost! The correct answer was {answer}")    
+                        print(f"Game over Batman you lost! The correct \
+                            answer was {answer}")    
                 else:
-                    print(f"{answer} is the correct answer good job Batman! You saved the day")
+                    print(f"{answer} is the correct answer good job Batman!\
+                        You saved the day")
                     return answer
             
                          
@@ -136,22 +143,3 @@ def parse_args(arglist):
 if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
     play_game(args.file)
-        #flow chart of how your code should flow and then structure the name block     
-    
-
-    
-        #for guesses or like guess class
-    #make a function that takes the guesses
-    #a way to take off time from the counter when a bad guess is inputed
-    #2 minutes for a guess, 1st guess takes off 10 seconds, 2nd takes off 20 seconds
-    #3rd is 30 seconds. after 3rd guess every guess is 30 seconds
-    
-
-    #loop - would be inside the guessing and the time
-    #loop - for the riddle (repeating the riddle)
-    #if statement - if guess is correct, winner moves to next round
-    #next round function - play game, rules, winner function
-    #read txt file (1) - would read the file and take riddles
-    #read txt file (2) - would read the file and take anwsers
-    
-#Time.countdown()
