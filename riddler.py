@@ -1,28 +1,10 @@
 from argparse import ArgumentParser
-import time
-from time import *
-from time import sleep
-import datetime
 import random 
 from random import choice 
 import re
 import sys
-emptydict={}
-LEN_GUESSES = 3
 
 
-from argparse import ArgumentParser
-from this import d
-import time
-from time import *
-from time import sleep
-import datetime
-import random 
-from random import choice 
-import re
-import sys
-emptydict={}
-LEN_GUESSES = 3
 
 def read_riddle(filename):
         """This takes a text file and reads the text file, then converts the 
@@ -131,16 +113,9 @@ def play_game(filename):
             print("Oh Well, See You Next Time.")
             break 
         else:
-            new_round.lower()=="yes"
+            new_round.lower() == "yes"
     
-                
-                
-                
-                
-                
- 
-            
-      
+       
                 
 def parse_args(arglist):
     """ Parse command-line arguments.
