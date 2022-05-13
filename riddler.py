@@ -83,7 +83,10 @@ class Riddler:
                 self.userguess=input("Make your guess:")
                 if self.userguess != self.answer:
                     turns=turns-1
-                    print("You got it wrong try again.")
+                    if turns ==2:
+                         print("You got two wires left Batman, you are CUTTING it close AHAHAHAHA.")
+                    if turns ==1:
+                         print("You got one more left I would be SHIVERING in my boots if I was you :\)")
                     if turns ==0:
                         print(f"Game over Batman you lost! The correct answer was {self.answer}")    
                 else:
