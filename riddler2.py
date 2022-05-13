@@ -32,9 +32,22 @@ class Riddler:
                 a statement would be printed that they lose.
                 Unless you win then a statement that you win will be diplayed
                 """
+    print(rules)
+    
+    def read_riddle(r_file):
+        """This takes a text file and reads the text file, then converts the 
+    lines of the text file which will return the riddle given
+    Args: 
+        textfile
+    Returns:
+            Prints read riddle statement"""
+        with open(r_file,"r",encoding="utf-8") as f:
+            lines=[line for line in f.readlines()]
+        return lines  
+    
         print(rules)
 
-    def __init__(self,rtxt):
+    def __init__(self,rtxt,read_riddle):
             """This displays the players name.
 
             Args:
@@ -45,11 +58,13 @@ class Riddler:
             expr = r"""
             (?xm)
             ^
-            (?:(?P<question_number>\d(?:\d)?).)
-            (?P<question>[^?\n]+.\s)
-            (?:(?P<answer>.+))
-            """
+
+            (?:(?P<question_number>\d(?:\d)?\.)\s)
+            (?P<question>[^?\n]+.\s))
+            """ 
+            riddle_list = read_riddle(rtxt)
             riddle_list=self.read_riddle(rtxt)
+
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
                 self.question_number=searchtxt.group("question_number")
@@ -57,6 +72,12 @@ class Riddler:
                 self.answer=searchtxt.group("answer")
                 self.riddle_dict[self.question.strip()]=self.answer
                 
+    def __repr__(self):
+        "Return formal riddle of the code"
+        return (
+            f"question: {self.question}\n"    
+            f"answer:   {self.answer}\n")
+
 
             #add guesses to the init method and good guesses and bad guesses to be stored as a set
             #make a dictionary of the riddle and then complies them 
@@ -64,6 +85,7 @@ class Riddler:
             #need to be stored somewhere, maybe list of tuples
         
         
+
     
     def play_game(self):
         """ This function will allow the player to guess the riddle through 
@@ -75,44 +97,32 @@ class Riddler:
         Side effects: 
             displays information in the terminal.
         """
-        Riddler.game_rules()
-        time_left= Time.countdown()
-        Riddler.riddle_dict
-        guesses = input(" ")
-        while guesses <3 and Time.countdown():
-            word = choice(self.guesses)
-            for riddle in word:
-                if riddle in LEN_GUESSES:
-                    break
-                else:
-                    guess = guess + riddle
-                    break
-            return guesses
-        
-        if guess == self.answer:
+    
+    answers = ["Eggs","Sponge","The Future","Darkness","Teapot","A Stamp", \
+        "A Clock","Age", "Silence","A Fire"]
+    answer = random.choice(answers)
+    guess = input(" ") 
+    turns = 3
+    while turns > 0:
+        failed_attempts = 0 
+        for ans in answer:
+            if ans in answer:
+                print(ans, end = " ")
+            else:
+                print(ans, end= " ")
+                failed_attempts += 1
+        if failed_attempts == 0:
+            print("Good Job Batman")
             
-            print("Well Done Batman, onto the next riddle. Let's see if you\
-                 can answer this one correctly")
-            #elif guess != self.answer:
-                #print("Good Try! But your answer was WRONG... Try Again >:) ")
+            
+    if guess == answer:
+        print("Well Done Batman, onto the next riddle. Let's see if you can\
+            answer this one correctly")
+    elif guess != answer:
+        print("Good Try! But your answer was WRONG... Try Again >:) ")
 
-        #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
-        #capture the question including question mark with one capturing group 
-        #capture the anwser with a capturing group
-        #find a way to randomize the riddles in the txtfile before being called or after 
-        #need to change this to it actually making the file for the riddle a dictionary 
-
-    def read_riddle(r_file):
-        """This takes a text file and reads the text file, then converts the 
-    lines of the text file which will return the riddle given
-    Args: 
-        textfile
-    Returns:
-            Prints read riddle statement"""
+    def game_over():
         
-        with open(r_file,"r",encoding="utf-8") as f:
-            lines=[line for line in f.readlines()]
-        return lines 
     
 
                 
@@ -136,6 +146,7 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     game= Riddler(args.file)
     game.play_game()
+    
         # the !r tells the f-string to use the __repr__() method to generate
         # a string version of the address object
     

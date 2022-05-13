@@ -12,7 +12,11 @@ import sys
 emptydict={}
 LEN_GUESSES = 3
 
+
 def read_riddle(filename):
+
+def read_riddle(r_file):
+
         """This takes a text file and reads the text file, then converts the 
     lines of the text file which will return the riddle given
     Args: 
@@ -20,7 +24,9 @@ def read_riddle(filename):
     Returns:
             Prints read riddle statement"""
         
-        with open(filename,"r",encoding="utf-8") as f:
+
+        with open(r_file,"r",encoding="utf-8") as f:
+
             lines=[line for line in f.readlines()]
         return lines 
                 
@@ -30,7 +36,10 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
+
     def __init__(self,filename):
+    def __init__(self,rtxt):
+        
             """This displays the players name.
 
             Args:
@@ -38,13 +47,21 @@ class Riddler:
             Side effects:
                 displays an instance of the variable."""
             self.riddle_dict={}
+
             expr = r"""(?xm)
+
+            
+            (?xm)
             ^
             (?:(?P<question_number>\d(?:\d)?\.)\s)
             (?P<question>[^?\n]+.\s)
             (?:(?P<answer>.+))
             """
+
             riddle_list=read_riddle(filename)
+
+            riddle_list=read_riddle(rtxt)
+
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
                 self.question_number=searchtxt.group("question_number")
@@ -74,6 +91,14 @@ class Riddler:
                 Unless you win then a statement that you win will be diplayed
                 """
         print(rules)
+
+
+        #currently takes the riddle and opens it maybe find a way to have it only open to the riddle not answer
+        #capture the question including question mark with one capturing group 
+        #capture the anwser with a capturing group
+        #find a way to randomize the riddles in the txtfile before being called or after 
+        #need to change this to it actually making the file for the riddle a dictionary 
+
     
     def guess(self):
             """Holds user answers and questions and give it to them, """ 
@@ -97,6 +122,38 @@ class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""
     
+
+    def __init__(self, filename):
+        super().__init__(filename)    
+        self.start= None
+        self.curr= None
+    def start_timer()
+        start= time.now()
+    def end_timer()
+        diff= time.now -self.start
+        print(diff)
+    def get_time_elapsed():
+        time.now()- self.start
+        return z
+    
+
+    that may be taken as the user answers the riddles"   
+   
+
+    def countdown(m):
+        total_seconds = m * 60
+        while total_seconds > 0:
+            timer = datetime.timedelta(seconds = total_seconds)
+            print(timer, end="\r")
+            if m > 3:
+                print("I told you only 3 minutes! NO MORE THAN THAT")
+                break
+            sleep(1)
+            total_seconds-=1
+    m = input("Enter the time in minutes:")
+    countdown(int(m))
+    print("Oh No! It looks like you've ran out of time.\
+    You set off the bomb Batman, lets see how you'll save Gotham now")
     def countdown(self):
             m = input("Enter the time in minutes:")
             m=int(m)
@@ -122,17 +179,26 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-        #play_round method in class
+
+        self.game_rules()
+        time_left = self.countdown()
+        guesses = input(" ")
+        while guesses < 3 and self.countdown():
+
         Riddler.game_rules()
         time_left= Time.countdown()
-        #change this as well
-        Riddler.riddle_dictx
+        Riddler.riddle_dict
         guesses = input(" ")
-        #while guesses <3 and Time.countdown():
-        #change this all of it, 
+        while guesses <3 and Time.countdown():
+
+            word = choice(self.guesses)
+            for riddle in word:
+                if riddle in LEN_GUESSES:
+
         word = choice(self.guesses)
         for riddle in word:
             if riddle in LEN_GUESSES:
+
                     break
             else:
                 guess = guess + riddle
