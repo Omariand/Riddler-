@@ -1,4 +1,3 @@
-
 from argparse import ArgumentParser
 import time
 from time import *
@@ -11,6 +10,19 @@ import sys
 emptydict={}
 LEN_GUESSES = 3
 
+
+from argparse import ArgumentParser
+from this import d
+import time
+from time import *
+from time import sleep
+import datetime
+import random 
+from random import choice 
+import re
+import sys
+emptydict={}
+LEN_GUESSES = 3
 
 def read_riddle(filename):
         """This takes a text file and reads the text file, then converts the 
@@ -31,7 +43,6 @@ class Riddler:
     reads text files.
     """
     def __init__(self,filename):
-
             """This displays the players name.
 
             Args:
@@ -78,17 +89,12 @@ class Riddler:
     
     def guess(self):
             """Holds user answers and questions and give it to them, """ 
-            turns = 3
+            turns=3
             while turns > 0:
                 print(self.question)
                 self.userguess=input("Make your guess:")
                 if self.userguess != self.answer:
                     turns=turns-1
-<<<<<<< HEAD
-=======
-                    print("You got it wrong try again.")
-
->>>>>>> c43bc759558d855e704deded9b18b51083305600
                     if turns ==2:
                         print("You got two wires left Batman, you are CUTTING it close AHAHAHAHA.")
                     if turns ==1:
