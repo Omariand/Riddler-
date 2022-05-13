@@ -78,7 +78,7 @@ class Riddler:
     
     def guess(self):
             """Holds user answers and questions and give it to them, """ 
-            turns=3
+            turns = 3
             while turns > 0:
                 print(self.question)
                 self.userguess=input("Make your guess:")
