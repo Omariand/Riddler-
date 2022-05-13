@@ -6,6 +6,7 @@ import sys
 
 
 
+
 def read_riddle(filename):
         """This takes a text file and reads the text file, then converts the 
     lines of the text file which will return the riddle given
@@ -47,7 +48,9 @@ class Riddler:
                 self.riddle_dict[question.strip()]=answer.strip()
             self.question_list=list(self.riddle_dict)
             #look up key inside the dictionary and have it be equal to answer
-    def game_rules(self):
+            self.example_question= " What has a ring but no finger? "
+            self.example_answer = "A Phone"
+    def __repr__(self):
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
         """
@@ -70,7 +73,10 @@ class Riddler:
             4.The user or “Batman” if failed will have the city destroyed and
                 a statement would be printed that they lose.
                 Unless you win then a statement that you win will be diplayed
-                """
+                
+            return f"Here's an example question{self.example_question} and here's
+            and example answer we're looking for:{self.example_answer}"
+            """
         print(rules)
     
     def guess(self):
@@ -113,7 +119,7 @@ def play_game(filename):
         
     while True:
         game= Riddler(filename)
-        game.game_rules()
+        game.__repr__()
         game.guess()
         new_round = input("Would you like to play again <:^)yes/no")
         if new_round.lower() == "no":
@@ -143,3 +149,7 @@ def parse_args(arglist):
 if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
     play_game(args.file)
+
+#Regex, - Mike
+# With Statements, ArgumentParser - Omar
+# Conditional Expression, F-String - Danielle
