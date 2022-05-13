@@ -51,14 +51,6 @@ class Riddler:
                 self.question=searchtxt.group("question")
                 self.answer=searchtxt.group("answer")
                 self.riddle_dict[self.question.strip()]=self.answer.strip()
-                
-
-            #add guesses to the init method and good guesses and bad guesses to be stored as a set
-            #make a dictionary of the riddle and then complies them 
-            #dictionary may have easier functionality 
-            #need to be stored somewhere, maybe list of tuples
-        
-        #add guesses to the init method and good guesses and bad guesses to be stored as a set
    
     def game_rules(self):
         """This function displays the instruction to the player so they
@@ -203,9 +195,6 @@ if __name__ == "__main__":
     
     time = Time(args.file)
     
-    
-        # the !r tells the f-string to use the __repr__() method to generate
-        # a string version of the address object
     
         #flow chart of how your code should flow and then structure the name block     
     
