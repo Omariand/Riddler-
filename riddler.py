@@ -82,8 +82,21 @@ class Riddler:
                 """
         print(rules)
     
-    def user_questions(userguess,bad_guess,good_guess):
-        """Holds user answers and questions and give it to them, """
+    def guess(self):
+            """Holds user answers and questions and give it to them, """
+            self.userguess=input("Make your guess")
+            turns=3
+            while turns > 0:
+                print(self.question)
+                self.userguess=input("Make your guess")
+                if self.userguess is not self.answer:
+                    turns=turns-1
+                    print("You got it wrong try again.")
+                    
+                else:
+                    print(f"{self.answer} is the correct answer good job Batman!")
+                    return self.answer
+                    
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""
@@ -113,6 +126,7 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
+        #play_round method in class
         Riddler.game_rules()
         time_left= Time.countdown()
         #change this as well
@@ -184,8 +198,10 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     game= Riddler(args.file)
     game.game_rules()
+    game.guess()
+    
     time = Time(args.file)
-    time.countdown()
+    
     
         # the !r tells the f-string to use the __repr__() method to generate
         # a string version of the address object
