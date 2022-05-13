@@ -58,23 +58,20 @@ class Riddler:
         Are you ready to play The Riddler Game?
             Here are the Rules:
             
-            1. You will be given a riddle, that they have to answer 
-                with a  timer that goes down every second you take .
+            1. You will be given a riddle, that they have to answer.
                 
-            2.  If you make one mistake the time goes 10 to 20 to 30 seconds 
-                faster and then this will continue until the BOMB goes off or\
-                    you answer the riddle correctly.
+            2.  Either you make mistake or you answer the riddle correctly.
                 
-            3. This will happen 5 times until the user saves the city and there\
+            3. This will happen 3 times until the user saves the city and there
                 will be times for each bomb upcoming and there will be
-                significantly lower or harder as a riddle compared to the last\
+                significantly lower or harder as a riddle compared to the last
                     one.
             
             4.The user or “Batman” if failed will have the city destroyed and
                 a statement would be printed that they lose.
                 Unless you win then a statement that you win will be diplayed
                 
-            return f"Here's an example question{self.example_question} and here's
+            "Here's an example question{self.example_question} and here's
             and example answer we're looking for:{self.example_answer}"
             """
         print(rules)
@@ -92,17 +89,13 @@ class Riddler:
                 if self.userguess != answer: 
                     turns=turns-1
                     if turns ==2:
-                        print("You got two wires left Batman, you are CUTTING \
-                            it close AHAHAHAHA.")
+                        print("You got two wires left Batman, you are CUTTING it close AHAHAHAHA.")
                     if turns ==1:
-                        print("You got one more left I would be SHIVERING in \
-                            my boots if I was you :\)")
+                        print("You got one more left I would be SHIVERING in my boots if I was you :\)")
                     if turns ==0:
-                        print(f"Game over Batman you lost! The correct \
-                            answer was {answer}")    
+                        print(f"Game over Batman you lost! The correct answer was {answer}")    
                 else:
-                    print(f"{answer} is the correct answer good job Batman!\
-                        You saved the day")
+                    print(f"{answer} is the correct answer good job Batman! You saved the day")
                     return answer
             
                          
