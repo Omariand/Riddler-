@@ -33,7 +33,7 @@ def read_riddle(filename):
             Prints read riddle statement"""
         
         with open(filename,"r",encoding="utf-8") as f:
-            lines=[line for line in f.readlines()]
+            lines=  f.readlines()
         return lines 
                 
 
@@ -59,11 +59,12 @@ class Riddler:
             riddle_list=read_riddle(filename)
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
-                self.question_number=searchtxt.group("question_number")
-                self.question=searchtxt.group("question")
-                self.answer=searchtxt.group("answer")
-                self.riddle_dict[self.question.strip()]=self.answer.strip()
-   
+                question_number=searchtxt.group("question_number")
+                question=searchtxt.group("question")
+                answer=searchtxt.group("answer")
+                self.riddle_dict[question.strip()]=answer.strip()
+            self.question_list=list(self.riddle_dict)
+            #look up key inside the dictionary and have it be equal to answer
     def game_rules(self):
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
@@ -90,20 +91,24 @@ class Riddler:
     def guess(self):
             """Holds user answers and questions and give it to them, """ 
             turns=3
+            
+            
             while turns > 0:
-                print(self.question)
+                randomq=random.choice(self.question_list)
+                print(randomq)
                 self.userguess=input("Make your guess:")
-                if self.userguess != self.answer:
+                answer=self.riddle_dict.get(self.userguess)
+                if self.userguess != answer: 
                     turns=turns-1
                     if turns ==2:
                         print("You got two wires left Batman, you are CUTTING it close AHAHAHAHA.")
                     if turns ==1:
                         print("You got one more left I would be SHIVERING in my boots if I was you :\)")
                     if turns ==0:
-                        print(f"Game over Batman you lost! The correct answer was {self.answer}")    
+                        print(f"Game over Batman you lost! The correct answer was {answer}")    
                 else:
-                    print(f"{self.answer} is the correct answer good job Batman! You saved the day")
-                    return self.answer
+                    print(f"{answer} is the correct answer good job Batman! You saved the day")
+                    return answer
                     
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
