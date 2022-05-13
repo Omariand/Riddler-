@@ -1,5 +1,6 @@
 
 from argparse import ArgumentParser
+from this import d
 import time
 from time import *
 from time import sleep
@@ -11,11 +12,11 @@ import sys
 emptydict={}
 LEN_GUESSES = 3
 
-<<<<<<< Updated upstream
+
 def read_riddle(filename):
-=======
+
 def read_riddle(r_file):
->>>>>>> Stashed changes
+
         """This takes a text file and reads the text file, then converts the 
     lines of the text file which will return the riddle given
     Args: 
@@ -23,7 +24,6 @@ def read_riddle(r_file):
     Returns:
             Prints read riddle statement"""
         
-        with open(filename,"r",encoding="utf-8") as f:
 
         with open(r_file,"r",encoding="utf-8") as f:
 
@@ -36,11 +36,10 @@ class Riddler:
     this class will provide funtions that display the rules, starts the game and
     reads text files.
     """
-<<<<<<< Updated upstream
+
     def __init__(self,filename):
-=======
     def __init__(self,rtxt):
->>>>>>> Stashed changes
+        
             """This displays the players name.
 
             Args:
@@ -48,46 +47,28 @@ class Riddler:
             Side effects:
                 displays an instance of the variable."""
             self.riddle_dict={}
-<<<<<<< Updated upstream
+
             expr = r"""(?xm)
-=======
-            expr = r"""
+
+            
             (?xm)
->>>>>>> Stashed changes
             ^
             (?:(?P<question_number>\d(?:\d)?\.)\s)
             (?P<question>[^?\n]+.\s)
             (?:(?P<answer>.+))
             """
-<<<<<<< Updated upstream
+
             riddle_list=read_riddle(filename)
-=======
+
             riddle_list=read_riddle(rtxt)
->>>>>>> Stashed changes
+
             for riddle in riddle_list:
                 searchtxt=re.search(expr,riddle)
                 self.question_number=searchtxt.group("question_number")
                 self.question=searchtxt.group("question")
                 self.answer=searchtxt.group("answer")
-                self.riddle_dict[self.question.strip()]=self.answer
-                
-
-            #add guesses to the init method and good guesses and bad guesses to be stored as a set
-            #make a dictionary of the riddle and then complies them 
-            #dictionary may have easier functionality 
-            #need to be stored somewhere, maybe list of tuples
-        
-        #add guesses to the init method and good guesses and bad guesses to be stored as a set
-        #make a dictionary of the riddle and then complies them 
-        #dictionary may have easier functionality 
-        #need to be stored somewhere, maybe list of tuples
-        #make riddle saying key
-        #make value the answer
-        #or make key the number
-        #value be the a tuple or index zero is riddle    
-    #def __repr__(self):
-        #find a way to break up from answer and question and print them seperately 
-        
+                self.riddle_dict[self.question.strip()]=self.answer.strip()
+   
     def game_rules(self):
         """This function displays the instruction to the player so they
             understand what tasks need to be done and the rules.
@@ -119,12 +100,26 @@ class Riddler:
         #need to change this to it actually making the file for the riddle a dictionary 
 
     
-    def user_questions(userguess,bad_guess,good_guess):
-        """Holds user answers and questions and give it to them, """
+    def guess(self):
+            """Holds user answers and questions and give it to them, """ 
+            turns=3
+            while turns > 0:
+                print(self.question)
+                self.userguess=input("Make your guess:")
+                if self.userguess != self.answer:
+                    turns=turns-1
+                    print("You got it wrong try again.")
+                    if turns ==0:
+                        print(f"Game over Batman you lost! The correct answer was {self.answer}")    
+                else:
+                    print(f"{self.answer} is the correct answer good job Batman! You saved the day")
+                    return self.answer
+                    
 class Time(Riddler):
     """ This Time class will keep track of time and create any time deductions
     that may be taken as the user answers the riddles"""
     
+
     def __init__(self, filename):
         super().__init__(filename)    
         self.start= None
@@ -138,10 +133,10 @@ class Time(Riddler):
         time.now()- self.start
         return z
     
-=======
-    that may be taken as the user answers the riddles"""    
+
+    that may be taken as the user answers the riddles"   
    
-<<<<<<< HEAD
+
     def countdown(m):
         total_seconds = m * 60
         while total_seconds > 0:
@@ -156,8 +151,6 @@ class Time(Riddler):
     countdown(int(m))
     print("Oh No! It looks like you've ran out of time.\
     You set off the bomb Batman, lets see how you'll save Gotham now")
-=======
->>>>>>> Stashed changes
     def countdown(self):
             m = input("Enter the time in minutes:")
             m=int(m)
@@ -172,10 +165,6 @@ class Time(Riddler):
                 total_seconds-=1
             print("Oh No! It looks like you've ran out of time.\
                     You set off the bomb Batman, lets see how you'll save Gotham now")
-<<<<<<< Updated upstream
-=======
->>>>>>> 45dd95c11202fe09e108ffd480a0d4139563858b
->>>>>>> Stashed changes
 
     def play_game(self):
         """ This function will allow the player to guess the riddle through 
@@ -187,36 +176,31 @@ class Time(Riddler):
         Side effects: 
             displays information in the terminal.
         """
-<<<<<<< Updated upstream
-        Riddler.game_rules()
-        time_left= Time.countdown()
-        #change this as well
-        Riddler.riddle_dict
-        guesses = input(" ")
-        #while guesses <3 and Time.countdown():
-        #change this all of it, 
-=======
-<<<<<<< HEAD
+
         self.game_rules()
         time_left = self.countdown()
         guesses = input(" ")
         while guesses < 3 and self.countdown():
-=======
+
         Riddler.game_rules()
         time_left= Time.countdown()
         Riddler.riddle_dict
         guesses = input(" ")
         while guesses <3 and Time.countdown():
->>>>>>> 45dd95c11202fe09e108ffd480a0d4139563858b
->>>>>>> Stashed changes
+
             word = choice(self.guesses)
             for riddle in word:
                 if riddle in LEN_GUESSES:
+
+        word = choice(self.guesses)
+        for riddle in word:
+            if riddle in LEN_GUESSES:
+
                     break
-                else:
-                    guess = guess + riddle
-                    break
-                return guess 
+            else:
+                guess = guess + riddle
+                break
+        return guess 
         
         if guess == self.answer:
             
@@ -250,27 +234,6 @@ class Time(Riddler):
             print("Thank you for trying to save Gotham Batman you failed \
                 though. ?<.,>???>?><?>?>?-Riddler")
             
-        
-    #def wireline(self,play_answer):
-        """ For this method we will be using the import time to deduct time 
-        as the player begins to answer the riddle. If the answer given the 
-        timer will deduct 10 seconds for 1 wrong guess, 20 for 2 and 30 for 3. 
-        If the play continously answers incorrectly the timer will keep deducting 
-        30 seconds until the time is up
-        Args:
-        
-        Side effects:
-            modifies the value of the "game_time" variable. (mutable)
-        Returns:
-            (int): an updated variable "game_time" with the deducted amount printed into the console.
-         """
-         #uses len(bad_guesses) =3: 
-         #game_over()
-        #while guess is not == play_answer 3 times:
-            #print(you  done batman)
-        #else:
-            #print(good job batman)
-        #PSEUDOCODE
 
         
                 
@@ -294,11 +257,10 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     game= Riddler(args.file)
     game.game_rules()
-    time = Time(args.file)
-    time.countdown()
+    game.guess()
     
-        # the !r tells the f-string to use the __repr__() method to generate
-        # a string version of the address object
+    time = Time(args.file)
+    
     
         #flow chart of how your code should flow and then structure the name block     
     
