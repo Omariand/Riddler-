@@ -97,7 +97,7 @@ class Riddler:
                 randomq=random.choice(self.question_list)
                 print(randomq)
                 self.userguess=input("Make your guess:")
-                answer=self.riddle_dict.get(self.userguess)
+                answer= self.riddle_dict[randomq]
                 if self.userguess != answer: 
                     turns=turns-1
                     if turns ==2:
@@ -109,54 +109,38 @@ class Riddler:
                 else:
                     print(f"{answer} is the correct answer good job Batman! You saved the day")
                     return answer
-                    
-class Time(Riddler):
-    """ This Time class will keep track of time and create any time deductions
-    that may be taken as the user answers the riddles"""
+            
+                         
+def play_game(filename):
+    """ This fuction will provide the player to either continue the game
+    or end the game if they get the riddle correct. If the player beats all 
+    of the riddles they will recive a congratulatory message.
+    Args:
     
-    
-    # def countdown(self):
-    #         m = input("Enter the time in minutes:")
-    #         m=int(m)
-    #         total_seconds = m * 60
-    #         while total_seconds > 0:
-    #             timer = datetime.timedelta(seconds = total_seconds)
-    #             print(timer, end="\r")
-    #             if m > 3:
-    #                 print("I told you only 3 minutes! NO MORE THAN THAT")
-    #                 break
-    #             sleep(1)
-    #             total_seconds-=1
-    #         print("Oh No! It looks like you've ran out of time.\
-    #                 You set off the bomb Batman, lets see how you'll save Gotham now")
+    Side effects:
+        Displays information of the winner in the terminal.
+    """
 
-   
-    def game_over(self):
-        """stops game if the player answers the game correclty or the \
-            time runs out."""
-         
+        
+    while True:
+        game= Riddler(filename)
+        game.game_rules()
+        game.guess()
+        new_round = input("Would you like to play again <:^)yes/no")
+        if new_round.lower() == "no":
+            print("Oh Well, See You Next Time.")
+            break 
+        else:
+            new_round.lower()=="yes"
+    
                 
-
+                
+                
+                
+                
+ 
             
-    def play_again(self):
-        """ This fuction will provide the player to either continue the game
-        or end the game if they get the riddle correct. If the player beats all 
-        of the riddles they will recive a congratulatory message.
-        Args:
-        
-        Side effects:
-            Displays information of the winner in the terminal.
-        """
-        player= input("Would you like to play again <:^)")
-         
-        while player !="no":
-            self.play_game()
-        else: 
-            print("Thank you for trying to save Gotham Batman you failed \
-                though. ?<.,>???>?><?>?>?-Riddler")
-            
-
-        
+      
                 
 def parse_args(arglist):
     """ Parse command-line arguments.
@@ -176,13 +160,7 @@ def parse_args(arglist):
 
 if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
-    game= Riddler(args.file)
-    game.game_rules()
-    game.guess()
-    
-    time = Time(args.file)
-    
-    
+    play_game(args.file)
         #flow chart of how your code should flow and then structure the name block     
     
 
