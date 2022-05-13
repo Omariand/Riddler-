@@ -37,8 +37,8 @@ class Riddler:
     reads text files.
     """
 
-    def __init__(self,filename):
-    def __init__(self,rtxt):
+    def __init__(self,filename,):
+    
         
             """This displays the players name.
 
@@ -109,7 +109,7 @@ class Riddler:
                 if self.userguess != self.answer:
                     turns=turns-1
                     print("You got it wrong try again.")
-                    if turns ==0:
+                    if turns == 0:
                         print(f"Game over Batman you lost! The correct answer was {self.answer}")    
                 else:
                     print(f"{self.answer} is the correct answer good job Batman! You saved the day")
