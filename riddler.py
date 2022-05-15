@@ -11,9 +11,9 @@ def read_riddle(filename):
         """This takes a text file and reads the text file, then converts the 
     lines of the text file which will return the riddle given
     Args: 
-        textfile
+        filename- This is the riddler file that will go through.
     Returns:
-            Prints read riddle statement"""
+            Returns riddle statement as strings after reading through them."""
         
         with open(filename,"r",encoding="utf-8") as f:
             lines=  f.readlines()
@@ -26,12 +26,12 @@ class Riddler:
     reads text files.
     """
     def __init__(self,filename):
-            """This displays the players name.
+            """This creats a dictionary through regex, reads through the filename using the regex then strips the unneeded spaces.
 
             Args:
-                player (str): Player name
+                filename- takes the riddler file and goes through it.
             Side effects:
-                displays an instance of the variable."""
+                holds the riddles in a dictionary which allows it to be parsed."""
             self.riddle_dict={}
             expr = r"""(?xm)
             ^
@@ -77,7 +77,12 @@ class Riddler:
         print(rules)
     
     def guess(self):
-            """Holds user answers and questions and give it to them, """ 
+            """Statement:
+            Holds the user guesses and allows the guesses to be asked by user input if the user guesses do not match the riddle answer then the user will lose their turns until
+            they answer correctly or run out.
+            Returns:
+            The correct answer will be displayed or given. 
+            """ 
             turns=3
             
             
@@ -101,12 +106,11 @@ class Riddler:
                          
 def play_game(filename):
     """ This fuction will provide the player to either continue the game
-    or end the game if they get the riddle correct. If the player beats all 
-    of the riddles they will recive a congratulatory message.
+    or end the game if they get the riddle correct or wrong.
     Args:
-    
+    filename- this is the riddle text file that will be parsed.
     Side effects:
-        Displays information of the winner in the terminal.
+        Calls other methds such as guess and allows those to function, then ask user if they want to play again and if not they will be able to terminate the game loop.
     """
 
         
@@ -126,7 +130,7 @@ def play_game(filename):
 def parse_args(arglist):
     """ Parse command-line arguments.
     
-    Expect one mandatory argument, the path to a file of addresses.
+    Expect one mandatory argument, the path to a file of the riddles.
     
     Args:
         arglist (list of str): command-line arguments.
@@ -136,7 +140,7 @@ def parse_args(arglist):
         the parsed arguments.     
     """
     parser = ArgumentParser()
-    parser.add_argument("file", help="file containing one address per line")
+    parser.add_argument("file", help="file containing one riddle per line")
     return parser.parse_args(arglist)
 
 if __name__ == "__main__": 
