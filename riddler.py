@@ -143,6 +143,6 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     play_game(args.file)
 
-#Regex, - Mike
+#Regex, magic methods - Mike
 # With Statements, ArgumentParser - Omar
 # Conditional Expression, F-String - Danielle
