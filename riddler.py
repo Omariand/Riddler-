@@ -47,7 +47,6 @@ class Riddler:
                 answer=searchtxt.group("answer")
                 self.riddle_dict[question.strip()]=answer.strip()
             self.question_list=list(self.riddle_dict)
-            #look up key inside the dictionary and have it be equal to answer
             self.example_question= " What has a ring but no finger? "
             self.example_answer = "A Phone"
     def __repr__(self):
