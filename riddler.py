@@ -83,8 +83,6 @@ class Riddler:
             The correct answer will be displayed or given. 
             """ 
             turns=3
-            
-            
             while turns > 0:
                 randomq=random.choice(self.question_list)
                 print(randomq)
@@ -111,8 +109,7 @@ def play_game(filename):
     Side effects:
         Calls other methds such as guess and allows those to function, then ask user if they want to play again and if not they will be able to terminate the game loop.
     """
-
-        
+      
     while True:
         game= Riddler(filename)
         game.__repr__()
@@ -124,8 +121,7 @@ def play_game(filename):
         else:
             new_round.lower() == "yes"
     
-       
-                
+               
 def parse_args(arglist):
     """ Parse command-line arguments.
     
@@ -146,6 +142,3 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     play_game(args.file)
 
-#Regex, magic methods - Mike
-# With Statements, ArgumentParser - Omar
-# Conditional Expression, F-String - Danielle
